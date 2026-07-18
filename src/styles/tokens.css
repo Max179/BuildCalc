@@ -1,0 +1,44 @@
+/* ============================================================
+   BuildCalc 设计变量 —— 美式工装编辑风（Refined Utilitarian）
+   ============================================================ */
+:root {
+  /* 调色板 */
+  --paper: #FAF7F2;
+  --paper-raised: #FFFFFF;
+  --paper-sunk: #F1ECE3;
+  --ink: #1C2321;
+  --ink-soft: #49534F;
+  --ink-faint: #7E8A85;
+  --line: rgba(28, 35, 33, 0.14);
+  --line-soft: rgba(28, 35, 33, 0.08);
+
+  --accent: #E85D2F;
+  --accent-strong: #C8481F;
+  --accent-soft: #FBE9E0;
+  --accent-on: #FFFFFF;
+
+  --slate: #2E3A38;
+  --slate-deep: #222B29;
+  --on-slate: #F4F0E9;
+  --on-slate-soft: #AFBBB5;
+
+  --success: #2F7D4F;
+  --warn: #B7791F;
+
+  /* 字体 */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* 圆角 */
+  --radius: 8px;
+  --radius-lg: 14px;
+
+  /* 布局 */
+  --container: 1320px;
+  --header-h: 64px;
+
+  /* 阴影 */
+  --shadow-1: 0 1px 2px rgba(28, 35, 33, 0.06), 0 4px 14px rgba(28, 35, 33, 0.06);
+  --shadow-2: 0 2px 6px rgba(28, 35, 33, 0.08), 0 14px 36px rgba(28, 35, 33, 0.12);
+}
