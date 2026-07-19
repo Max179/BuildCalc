@@ -75,4 +75,21 @@ export const flooring: CalculatorContent = {
   ],
   related: ['tile', 'paint', 'drywall'],
   guideSlug: 'flooring-measurement-guide',
+  buyLinks: [
+    {
+      label: 'Luxury Vinyl Plank Flooring',
+      note: 'Boxes cover ≈ 18–30 sq ft',
+      url: 'https://www.amazon.com/s?k=luxury+vinyl+plank+flooring',
+    },
+    {
+      label: 'Flooring Underlayment',
+      note: 'For laminate & floating floors',
+      url: 'https://www.amazon.com/s?k=flooring+underlayment',
+    },
+    {
+      label: 'Flooring Installation Kit',
+      note: 'Spacers, tapping block & pull bar',
+      url: 'https://www.amazon.com/s?k=flooring+installation+kit',
+    },
+  ],
 }

@@ -68,4 +68,21 @@ export const drywall: CalculatorContent = {
     },
   ],
   related: ['paint', 'flooring', 'tile'],
+  buyLinks: [
+    {
+      label: 'Drywall Screws (1-1/4 in)',
+      note: '≈ 1 lb per 500 sq ft',
+      url: 'https://www.amazon.com/s?k=drywall+screws+1+1+4+inch',
+    },
+    {
+      label: 'All-Purpose Joint Compound',
+      note: '≈ 0.05 gal per sheet',
+      url: 'https://www.amazon.com/s?k=all+purpose+joint+compound',
+    },
+    {
+      label: 'Drywall Knife Set',
+      note: '6", 10" & 12" taping knives',
+      url: 'https://www.amazon.com/s?k=drywall+taping+knife+set',
+    },
+  ],
 }

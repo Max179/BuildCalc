@@ -75,4 +75,21 @@ export const paint: CalculatorContent = {
   ],
   related: ['drywall', 'flooring', 'tile'],
   guideSlug: 'how-much-paint-do-i-need',
+  buyLinks: [
+    {
+      label: 'Interior Wall Paint (Gallon)',
+      note: 'Covers ≈ 350–400 sq ft per coat',
+      url: 'https://www.amazon.com/s?k=interior+wall+paint+gallon',
+    },
+    {
+      label: 'Paint Roller Kit',
+      note: 'Roller, tray & covers in one',
+      url: 'https://www.amazon.com/s?k=paint+roller+kit',
+    },
+    {
+      label: "Painter's Tape",
+      note: '≈ $6–9 per roll · clean edges',
+      url: 'https://www.amazon.com/s?k=painters+tape',
+    },
+  ],
 }

@@ -73,4 +73,21 @@ export const mulch: CalculatorContent = {
     },
   ],
   related: ['gravel', 'concrete', 'tile'],
+  buyLinks: [
+    {
+      label: 'Bagged Hardwood Mulch',
+      note: '2 cu ft bags · ≈ $3–5 each',
+      url: 'https://www.amazon.com/s?k=bagged+hardwood+mulch',
+    },
+    {
+      label: 'Landscape Fabric',
+      note: 'Weed barrier under mulch',
+      url: 'https://www.amazon.com/s?k=landscape+fabric+weed+barrier',
+    },
+    {
+      label: 'Garden Edging',
+      note: 'Keeps mulch off the lawn',
+      url: 'https://www.amazon.com/s?k=garden+edging',
+    },
+  ],
 }

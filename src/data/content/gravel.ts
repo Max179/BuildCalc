@@ -74,4 +74,21 @@ export const gravel: CalculatorContent = {
     },
   ],
   related: ['mulch', 'concrete', 'roofing'],
+  buyLinks: [
+    {
+      label: 'All-Purpose Gravel (Bagged)',
+      note: '≈ 0.5 cu ft per 50 lb bag',
+      url: 'https://www.amazon.com/s?k=all+purpose+gravel+bags',
+    },
+    {
+      label: 'Paver Base Panels',
+      note: 'Lighter alternative to gravel base',
+      url: 'https://www.amazon.com/s?k=paver+base+panels',
+    },
+    {
+      label: 'Weed Barrier Fabric',
+      note: 'Under driveways & paths',
+      url: 'https://www.amazon.com/s?k=weed+barrier+fabric+heavy+duty',
+    },
+  ],
 }

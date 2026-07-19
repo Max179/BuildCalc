@@ -2,6 +2,35 @@
 
 > 实时记录所有变更，确保任何开发者可无缝接手。最新记录在最上方。
 
+## 2026-07-19 — 盈利优化：24 篇场景指南 + 联盟购买模块（v0.3.0）
+
+### 背景
+依据 AdSense 盈利评估结论行动：① 内容弹药不足（仅 3 篇指南）② 结果页无联盟变现。本轮补齐两块短板。
+
+### 内容扩充（SEO 长尾）
+- `src/data/guides.ts` 重构为聚合器，每工具一个分文件 `src/data/guides/{tool}.ts`（支持并行写作不冲突）
+- 新增 24 篇场景长尾指南（每工具 3 篇，600-900 词，全部含具体数字演算）：
+  - concrete: fence post 袋数 / 10x10 slab / sonotube
+  - paint: 12x12 房间 / 外墙 / 橱柜
+  - flooring: laminate 箱数 / 楼梯测量 / L 型房间
+  - mulch: 花坛袋数 / playground 深度 / mulch vs rock 成本
+  - gravel: 车道 / paver 基层 / french drain
+  - drywall: 12x12 房间 / 地下室 / 腻子胶带用量
+  - tile: 浴室 / backsplash / thinset grout 用量
+  - roofing: 每 square 捆数 / 坡度测量 / 2000 sq ft 屋顶
+- sitemap 17 → 41 条 URL；动态指南路由自动预渲染（vite.config includedRoutes 已支持）
+
+### 联盟变现（BuyBox）
+- 类型：`CalculatorContent.buyLinks?: BuyLink[]`（label/note/url）
+- 新组件 `src/components/BuyBox.vue`：计算器卡片下方的购买推荐（3 个商品卡 + affiliate disclosure 声明）
+- 8 个内容文件各配 3 条 Amazon 搜索链接（rel="sponsored nofollow noopener"，target _blank）
+- **待办：申请 Amazon Associates 通过后，配置环境变量 `VITE_AMAZON_TAG=你的tag-20`，全站链接自动附加联盟 tag（Cloudflare Pages 环境变量或 .env）**
+
+### 验证
+38 测试全绿、vue-tsc 0 错误、构建 42 页、浏览器核查：27 指南列表无重复 slug、新指南渲染+CTA 正常、BuyBox 三栏展示+链接合规、控制台零报错
+
+---
+
 ## 2026-07-19 — 可用性修复：首屏功能前置 + 计算器互切（v0.2.1）
 
 ### 问题

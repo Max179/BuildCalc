@@ -65,4 +65,21 @@ export const concrete: CalculatorContent = {
   ],
   related: ['gravel', 'tile', 'paint'],
   guideSlug: 'how-to-measure-concrete-for-a-patio',
+  buyLinks: [
+    {
+      label: '80 lb Concrete Mix',
+      note: '≈ $5–7 per bag · 0.60 cu ft yield',
+      url: 'https://www.amazon.com/s?k=80+lb+concrete+mix',
+    },
+    {
+      label: 'Fast-Setting Concrete Mix',
+      note: 'Best for fence & deck posts',
+      url: 'https://www.amazon.com/s?k=fast+setting+concrete+mix+50+lb',
+    },
+    {
+      label: 'Concrete Mixing Tub',
+      note: '≈ $10–15 · reusable',
+      url: 'https://www.amazon.com/s?k=concrete+mixing+tub',
+    },
+  ],
 }

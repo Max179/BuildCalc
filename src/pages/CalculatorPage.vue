@@ -8,6 +8,7 @@ import ToolIcon from '@/components/ToolIcon.vue'
 import AdSlot from '@/components/AdSlot.vue'
 import FaqAccordion from '@/components/FaqAccordion.vue'
 import CalcSwitcher from '@/components/CalcSwitcher.vue'
+import BuyBox from '@/components/BuyBox.vue'
 
 const props = defineProps<{ slug: string }>()
 
@@ -86,6 +87,7 @@ useSEO(
           <component :is="calcComponent" v-if="calcComponent" />
           <p v-else class="calc-empty">This calculator is coming soon.</p>
         </div>
+        <BuyBox v-if="content.buyLinks?.length" :links="content.buyLinks" />
         <AdSlot />
       </div>
     </section>

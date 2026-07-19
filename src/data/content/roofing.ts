@@ -73,4 +73,21 @@ export const roofing: CalculatorContent = {
     },
   ],
   related: ['paint', 'gravel', 'concrete'],
+  buyLinks: [
+    {
+      label: 'Roofing Nails (1-1/4 in)',
+      note: '≈ 320 nails per square',
+      url: 'https://www.amazon.com/s?k=roofing+nails+1+1+4+inch',
+    },
+    {
+      label: 'Roofing Underlayment',
+      note: 'Felt or synthetic, by the roll',
+      url: 'https://www.amazon.com/s?k=roofing+underlayment+roll',
+    },
+    {
+      label: 'Drip Edge Flashing',
+      note: '10 ft sections · eaves & rakes',
+      url: 'https://www.amazon.com/s?k=drip+edge+flashing',
+    },
+  ],
 }

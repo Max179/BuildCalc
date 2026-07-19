@@ -11,6 +11,12 @@ export interface ReferenceTable {
   rows: string[][]
 }
 
+export interface BuyLink {
+  label: string // 商品名，如 '80 lb Concrete Mix'
+  note?: string // 补充说明，如 '≈ $5–7 per bag'
+  url: string // Amazon 搜索链接（配置 VITE_AMAZON_TAG 后自动附加联盟 tag）
+}
+
 export interface CalculatorContent {
   slug: string // URL 段，如 'concrete'
   name: string // 'Concrete Calculator'
@@ -26,6 +32,7 @@ export interface CalculatorContent {
   faqs: FaqItem[]
   related: string[] // 相关计算器 slug
   guideSlug?: string
+  buyLinks?: BuyLink[] // 结果页购买推荐（联盟变现）
 }
 
 export interface GuideSection {

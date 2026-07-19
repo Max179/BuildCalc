@@ -72,4 +72,21 @@ export const tile: CalculatorContent = {
     },
   ],
   related: ['flooring', 'concrete', 'drywall'],
+  buyLinks: [
+    {
+      label: 'Thinset Mortar (50 lb)',
+      note: 'Covers ≈ 60–100 sq ft per bag',
+      url: 'https://www.amazon.com/s?k=thinset+mortar+50+lb',
+    },
+    {
+      label: 'Tile Spacers',
+      note: '1/8" & 1/4" for even grout lines',
+      url: 'https://www.amazon.com/s?k=tile+spacers',
+    },
+    {
+      label: 'Grout Float',
+      note: '≈ $7–12 · essential tool',
+      url: 'https://www.amazon.com/s?k=grout+float',
+    },
+  ],
 }
