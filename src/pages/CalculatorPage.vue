@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { ArrowRight } from 'lucide-vue-next'
+import { ArrowUpRight } from 'lucide-vue-next'
 import { getCalculator, getRelated } from '@/data/calculators'
 import { calcComponents } from '@/calculators'
 import { useSEO, SITE_NAME, SITE_URL } from '@/composables/useSEO'
@@ -80,7 +80,7 @@ useSEO(
     <!-- 计算器本体 -->
     <section class="section-sm">
       <div class="container">
-        <div class="card calc-card">
+        <div class="card calc-card" v-reveal>
           <component :is="calcComponent" v-if="calcComponent" />
           <p v-else class="calc-empty">This calculator is coming soon.</p>
         </div>
@@ -90,7 +90,7 @@ useSEO(
 
     <!-- 计算方法与公式 -->
     <section class="section-sm">
-      <div class="container prose-wrap">
+      <div class="container prose-wrap" v-reveal>
         <h2>{{ content.howToTitle }}</h2>
         <ol class="howto-list">
           <li v-for="(step, i) in content.howTo" :key="i">{{ step }}</li>
@@ -104,7 +104,7 @@ useSEO(
 
     <!-- 参考数据表 -->
     <section class="section-sm">
-      <div class="container prose-wrap">
+      <div class="container prose-wrap" v-reveal>
         <h2>{{ content.referenceTable.title }}</h2>
         <table class="data-table">
           <thead>
@@ -126,7 +126,7 @@ useSEO(
 
     <!-- FAQ -->
     <section class="section-sm">
-      <div class="container prose-wrap">
+      <div class="container prose-wrap" v-reveal>
         <h2>Frequently asked questions</h2>
         <FaqAccordion :items="content.faqs" />
         <AdSlot />
@@ -136,18 +136,18 @@ useSEO(
     <!-- 相关计算器 -->
     <section class="section-sm">
       <div class="container">
-        <h2 class="related-title">Related calculators</h2>
+        <h2 class="related-title" v-reveal>Related calculators</h2>
         <div class="related-grid">
           <router-link
-            v-for="r in related"
+            v-for="(r, i) in related"
             :key="r.slug"
+            v-reveal="i * 80"
             :to="`/${r.slug}-calculator/`"
             class="related-card card"
           >
-            <span class="related-icon"><ToolIcon :name="r.icon" :size="20" /></span>
+            <span class="related-icon"><ToolIcon :name="r.icon" :size="22" /></span>
             <span class="related-name">{{ r.name }}</span>
-            <span class="related-tagline">{{ r.tagline }}</span>
-            <span class="related-cta">Open <ArrowRight :size="14" /></span>
+            <span class="related-go" aria-hidden="true"><ArrowUpRight :size="18" /></span>
           </router-link>
         </div>
       </div>
@@ -157,7 +157,7 @@ useSEO(
 
 <style scoped>
 .calc-head {
-  padding-block: 40px 8px;
+  padding-block: 56px 12px;
 }
 
 .breadcrumb {
@@ -166,7 +166,7 @@ useSEO(
   gap: 8px;
   font-size: 0.85rem;
   color: var(--ink-faint);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .breadcrumb a:hover {
@@ -176,28 +176,34 @@ useSEO(
 .calc-title-row {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 18px;
+}
+
+.calc-title-row h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
 }
 
 .calc-title-icon {
   display: grid;
   place-items: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
   background: var(--accent-soft);
   color: var(--accent-strong);
   flex-shrink: 0;
 }
 
 .calc-intro {
-  margin-top: 14px;
-  max-width: 720px;
-  font-size: 1.05rem;
+  margin-top: 16px;
+  max-width: 680px;
+  font-size: 1rem;
+  color: var(--ink-faint);
 }
 
 .calc-card {
-  padding: 32px;
+  padding: clamp(24px, 4vw, 48px);
+  border-radius: var(--radius-lg);
 }
 
 .prose-wrap {
@@ -263,52 +269,66 @@ useSEO(
 }
 
 .related-card {
+  position: relative;
   display: grid;
-  gap: 8px;
-  align-content: start;
-  padding: 20px;
-  transition: border-color 140ms ease, transform 140ms ease, box-shadow 140ms ease;
+  gap: 14px;
+  align-content: space-between;
+  min-height: 150px;
+  padding: 26px;
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
 }
 
 .related-card:hover {
   border-color: var(--accent);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-2);
 }
 
 .related-icon {
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   background: var(--accent-soft);
   color: var(--accent-strong);
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.related-card:hover .related-icon {
+  background: var(--accent);
+  color: #fff;
 }
 
 .related-name {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
-.related-tagline {
-  font-size: 0.85rem;
-  color: var(--ink-soft);
+.related-go {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  color: var(--ink-faint);
+  opacity: 0;
+  transform: translate(-5px, 5px);
+  transition: opacity 160ms ease, transform 160ms ease, color 160ms ease;
 }
 
-.related-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.8rem;
-  font-weight: 700;
+.related-card:hover .related-go {
+  opacity: 1;
+  transform: none;
   color: var(--accent);
 }
 
 @media (max-width: 768px) {
   .calc-card {
-    padding: 20px;
+    padding: 22px;
+  }
+
+  .calc-head {
+    padding-block: 36px 8px;
   }
 
   .related-grid {

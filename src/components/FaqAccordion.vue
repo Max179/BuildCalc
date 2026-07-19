@@ -24,8 +24,10 @@ function toggle(i: number) {
         <span>{{ item.q }}</span>
         <ChevronDown :size="18" class="faq-chevron" :class="{ open: openIndex === i }" />
       </button>
-      <div v-show="openIndex === i" :id="`faq-panel-${i}`" class="faq-a">
-        <p>{{ item.a }}</p>
+      <div :id="`faq-panel-${i}`" class="faq-a" :class="{ open: openIndex === i }">
+        <div class="faq-a-inner">
+          <p>{{ item.a }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -70,6 +72,20 @@ function toggle(i: number) {
 .faq-chevron.open {
   transform: rotate(180deg);
   color: var(--accent);
+}
+
+.faq-a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-a.open {
+  grid-template-rows: 1fr;
+}
+
+.faq-a-inner {
+  overflow: hidden;
 }
 
 .faq-a p {

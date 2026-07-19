@@ -51,11 +51,11 @@ h4 {
 }
 
 h1 {
-  font-size: clamp(2rem, 4.2vw, 3.1rem);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
 }
 
 h2 {
-  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
 }
 
 h3 {
@@ -89,11 +89,11 @@ p {
 }
 
 .section {
-  padding-block: 64px;
+  padding-block: 96px;
 }
 
 .section-sm {
-  padding-block: 40px;
+  padding-block: 56px;
 }
 
 .section-head {
@@ -130,8 +130,8 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 48px;
-  padding: 0 22px;
+  min-height: 52px;
+  padding: 0 26px;
   border: 1px solid transparent;
   border-radius: var(--radius);
   background: var(--accent);
@@ -181,13 +181,13 @@ p {
 .input,
 .select {
   width: 100%;
-  min-height: 48px;
-  padding: 10px 14px;
+  min-height: 56px;
+  padding: 12px 16px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--paper-raised);
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: 1.05rem;
   transition: border-color 120ms ease, box-shadow 120ms ease;
 }
 
@@ -382,6 +382,21 @@ p {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-faint);
+}
+
+/* ---------- 滚动显现（v-reveal） ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 640ms ease var(--reveal-delay, 0ms),
+    transform 640ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 /* ---------- 动效降级 ---------- */
