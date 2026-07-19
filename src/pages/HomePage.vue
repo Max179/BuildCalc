@@ -19,7 +19,7 @@ useSEO({
   },
 })
 
-// Hero 搜索框：按名称/描述/分类过滤工具卡片，按 "/" 快速聚焦
+// 搜索框：按名称/描述/分类过滤工具卡片，按 "/" 快速聚焦
 const query = ref('')
 const searchEl = ref<HTMLInputElement | null>(null)
 
@@ -58,26 +58,10 @@ const trustItems = [
 </script>
 
 <template>
-  <!-- Hero -->
+  <!-- Hero（紧凑横幅：品牌 + 信任点，功能全部下放） -->
   <section class="hero blueprint-bg">
     <div class="container hero-inner">
-      <span class="hero-eyebrow">Free construction calculators</span>
-      <h1 class="hero-title">Measure right.<br />Buy right.</h1>
-      <p class="hero-sub">Eight tools. Instant numbers. Zero sign-up.</p>
-
-      <div class="hero-search">
-        <Search :size="20" class="hero-search-icon" />
-        <input
-          ref="searchEl"
-          v-model="query"
-          type="search"
-          class="hero-search-input"
-          placeholder="Search calculators…"
-          aria-label="Search calculators"
-        />
-        <kbd class="hero-search-kbd" aria-hidden="true">/</kbd>
-      </div>
-
+      <h1 class="hero-title">Measure right. Buy right.</h1>
       <ul class="hero-trust">
         <li v-for="t in trustItems" :key="t.text">
           <component :is="t.icon" :size="15" />
@@ -87,12 +71,26 @@ const trustItems = [
     </div>
   </section>
 
-  <!-- 工具网格 -->
-  <section id="calculators" class="section">
+  <!-- 工具网格（第一屏核心功能） -->
+  <section id="calculators" class="tools-section">
     <div class="container">
       <div class="tools-head" v-reveal>
-        <span class="eyebrow">Calculators</span>
-        <h2>Pick a tool.<br />Get your number.</h2>
+        <div class="tools-title">
+          <span class="eyebrow">Calculators</span>
+          <h2>Pick a tool. Get your number.</h2>
+        </div>
+        <div class="tools-search">
+          <Search :size="18" class="tools-search-icon" />
+          <input
+            ref="searchEl"
+            v-model="query"
+            type="search"
+            class="tools-search-input"
+            placeholder="Search calculators…"
+            aria-label="Search calculators"
+          />
+          <kbd class="tools-search-kbd" aria-hidden="true">/</kbd>
+        </div>
       </div>
 
       <div v-if="filtered.length" class="tool-grid">
@@ -141,104 +139,41 @@ const trustItems = [
 </template>
 
 <style scoped>
-/* ---------- Hero ---------- */
+/* ---------- Hero（紧凑） ---------- */
 .hero {
   color: var(--on-slate);
 }
 
 .hero-inner {
-  padding-block: clamp(80px, 12vw, 150px) clamp(72px, 10vw, 120px);
-}
-
-.hero-eyebrow {
-  display: inline-block;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding-block: 40px;
 }
 
 .hero-title {
   color: var(--on-slate);
-  font-size: clamp(3.2rem, 8.5vw, 6.8rem);
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
   font-weight: 700;
-  line-height: 1.02;
   letter-spacing: -0.02em;
-}
-
-.hero-sub {
-  margin-top: 24px;
-  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
-  color: var(--on-slate-soft);
-}
-
-.hero-search {
-  position: relative;
-  margin-top: 48px;
-  max-width: 560px;
-}
-
-.hero-search-icon {
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--ink-faint);
-  pointer-events: none;
-}
-
-.hero-search-input {
-  width: 100%;
-  min-height: 68px;
-  padding: 16px 64px 16px 56px;
-  border: 1px solid transparent;
-  border-radius: var(--radius-lg);
-  background: var(--paper-raised);
-  font-size: 1.15rem;
-  color: var(--ink);
-  transition: box-shadow 160ms ease;
-}
-
-.hero-search-input:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(232, 93, 47, 0.25);
-}
-
-.hero-search-kbd {
-  position: absolute;
-  right: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--paper-sunk);
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  color: var(--ink-faint);
-  pointer-events: none;
 }
 
 .hero-trust {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 28px;
-  margin-top: 32px;
+  gap: 10px 24px;
   padding: 0;
+  margin: 0;
   list-style: none;
+  flex-shrink: 0;
 }
 
 .hero-trust li {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--on-slate-soft);
 }
@@ -247,13 +182,72 @@ const trustItems = [
   color: var(--accent);
 }
 
-/* ---------- 工具网格 ---------- */
-.tools-head {
-  margin-bottom: 48px;
+/* ---------- 工具区 ---------- */
+.tools-section {
+  padding-block: 48px 96px;
 }
 
-.tools-head h2 {
-  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+.tools-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.tools-title h2 {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.tools-search {
+  position: relative;
+  width: min(360px, 100%);
+  flex-shrink: 0;
+}
+
+.tools-search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-faint);
+  pointer-events: none;
+}
+
+.tools-search-input {
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 52px 12px 46px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+  font-size: 1rem;
+  color: var(--ink);
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.tools-search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(232, 93, 47, 0.22);
+}
+
+.tools-search-kbd {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper-sunk);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  pointer-events: none;
 }
 
 .tool-grid {
@@ -265,10 +259,10 @@ const trustItems = [
 .tool-card {
   position: relative;
   display: grid;
-  gap: 18px;
+  gap: 16px;
   align-content: space-between;
-  min-height: 240px;
-  padding: 30px;
+  min-height: 200px;
+  padding: 26px;
   background: var(--paper-raised);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius-lg);
@@ -285,8 +279,8 @@ const trustItems = [
 .tool-icon {
   display: grid;
   place-items: center;
-  width: 58px;
-  height: 58px;
+  width: 56px;
+  height: 56px;
   border-radius: 14px;
   background: var(--accent-soft);
   color: var(--accent-strong);
@@ -300,7 +294,7 @@ const trustItems = [
 
 .tool-name {
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 600;
   line-height: 1.2;
   color: var(--ink);
@@ -308,8 +302,8 @@ const trustItems = [
 
 .tool-go {
   position: absolute;
-  top: 26px;
-  right: 26px;
+  top: 24px;
+  right: 24px;
   color: var(--ink-faint);
   opacity: 0;
   transform: translate(-6px, 6px);
@@ -329,7 +323,7 @@ const trustItems = [
 }
 
 .home-ad {
-  margin-top: 56px;
+  margin-top: 48px;
 }
 
 /* ---------- 指南 ---------- */
@@ -369,7 +363,7 @@ const trustItems = [
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 36px 40px;
+  padding: 32px 36px;
   background: var(--paper-raised);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius-lg);
@@ -383,7 +377,7 @@ const trustItems = [
 }
 
 .guide-title {
-  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
 }
 
 .guide-go {
@@ -412,12 +406,24 @@ const trustItems = [
 }
 
 @media (max-width: 768px) {
-  .hero-search {
-    max-width: none;
+  .hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding-block: 32px;
+  }
+
+  .tools-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tools-search {
+    width: 100%;
   }
 
   .guide-row {
-    padding: 26px 24px;
+    padding: 24px 22px;
   }
 }
 
@@ -427,10 +433,10 @@ const trustItems = [
   }
 
   .tool-card {
-    min-height: 180px;
+    min-height: 170px;
   }
 
-  .hero-search-kbd {
+  .tools-search-kbd {
     display: none;
   }
 }

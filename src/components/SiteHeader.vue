@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { Hammer, Menu, X } from 'lucide-vue-next'
+import { Hammer, Menu, X, ChevronDown } from 'lucide-vue-next'
+import { calculatorMetas } from '@/data/calculators'
+import ToolIcon from '@/components/ToolIcon.vue'
 
 const route = useRoute()
 const menuOpen = ref(false)
@@ -23,7 +25,22 @@ watch(
       </router-link>
 
       <nav class="nav-desktop" aria-label="Primary">
-        <router-link to="/#calculators" class="nav-link">Calculators</router-link>
+        <div class="nav-item">
+          <router-link to="/#calculators" class="nav-link nav-dropdown-toggle">
+            Calculators <ChevronDown :size="14" />
+          </router-link>
+          <div class="dropdown">
+            <router-link
+              v-for="c in calculatorMetas"
+              :key="c.slug"
+              :to="`/${c.slug}-calculator/`"
+              class="dropdown-link"
+            >
+              <ToolIcon :name="c.icon" :size="16" />
+              <span>{{ c.name }}</span>
+            </router-link>
+          </div>
+        </div>
         <router-link to="/guides/" class="nav-link">Guides</router-link>
         <router-link to="/about/" class="nav-link">About</router-link>
       </nav>
@@ -104,6 +121,73 @@ watch(
 .nav-link:hover,
 .nav-link.router-link-active {
   color: var(--on-slate);
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translate(-50%, -4px);
+  min-width: 250px;
+  padding: 8px;
+  display: grid;
+  gap: 2px;
+  background: var(--paper-raised);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 140ms ease, transform 140ms ease, visibility 140ms;
+  z-index: 60;
+}
+
+/* 桥接悬停间隙，防止移入下拉时消失 */
+.dropdown::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
+
+.nav-item:hover .dropdown,
+.nav-item:focus-within .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.dropdown-link svg {
+  color: var(--accent-strong);
+}
+
+.dropdown-link:hover {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
 }
 
 .nav-toggle {

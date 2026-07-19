@@ -7,6 +7,7 @@ import { useSEO, SITE_NAME, SITE_URL } from '@/composables/useSEO'
 import ToolIcon from '@/components/ToolIcon.vue'
 import AdSlot from '@/components/AdSlot.vue'
 import FaqAccordion from '@/components/FaqAccordion.vue'
+import CalcSwitcher from '@/components/CalcSwitcher.vue'
 
 const props = defineProps<{ slug: string }>()
 
@@ -78,8 +79,9 @@ useSEO(
     </section>
 
     <!-- 计算器本体 -->
-    <section class="section-sm">
+    <section class="calc-section">
       <div class="container">
+        <CalcSwitcher :slug="slug" class="calc-switcher" />
         <div class="card calc-card" v-reveal>
           <component :is="calcComponent" v-if="calcComponent" />
           <p v-else class="calc-empty">This calculator is coming soon.</p>
@@ -157,16 +159,16 @@ useSEO(
 
 <style scoped>
 .calc-head {
-  padding-block: 56px 12px;
+  padding-block: 32px 4px;
 }
 
 .breadcrumb {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--ink-faint);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .breadcrumb a:hover {
@@ -176,29 +178,37 @@ useSEO(
 .calc-title-row {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
 }
 
 .calc-title-row h1 {
-  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
 }
 
 .calc-title-icon {
   display: grid;
   place-items: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
   background: var(--accent-soft);
   color: var(--accent-strong);
   flex-shrink: 0;
 }
 
 .calc-intro {
-  margin-top: 16px;
+  margin-top: 10px;
   max-width: 680px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--ink-faint);
+}
+
+.calc-switcher {
+  margin-bottom: 20px;
+}
+
+.calc-section {
+  padding-block: 24px 48px;
 }
 
 .calc-card {
