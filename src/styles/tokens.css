@@ -33,6 +33,11 @@
   /* 圆角 */
   --radius: 8px;
   --radius-lg: 14px;
+  --radius-xl: 22px;
+
+  /* 玻璃拟态（高斯模糊 + 半透明） */
+  --glass-dark: rgba(34, 43, 41, 0.55);
+  --glass-line: rgba(244, 240, 233, 0.22);
 
   /* 布局 */
   --container: 1320px;

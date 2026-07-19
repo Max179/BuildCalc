@@ -9,12 +9,15 @@ import AdSlot from '@/components/AdSlot.vue'
 import FaqAccordion from '@/components/FaqAccordion.vue'
 import CalcSwitcher from '@/components/CalcSwitcher.vue'
 import BuyBox from '@/components/BuyBox.vue'
+import { asset } from '@/utils/asset'
 
 const props = defineProps<{ slug: string }>()
 
 const content = computed(() => getCalculator(props.slug))
 const calcComponent = computed(() => calcComponents[props.slug])
 const related = computed(() => (content.value ? getRelated(content.value.related) : []))
+// 页头配图：public/images/tool-{slug}.jpg
+const photoSrc = computed(() => asset(`images/tool-${props.slug}.jpg`))
 
 useSEO(
   computed(() => {
@@ -74,6 +77,7 @@ useSEO(
         <div class="calc-title-row">
           <span class="calc-title-icon"><ToolIcon :name="content.icon" :size="24" /></span>
           <h1>{{ content.name }}</h1>
+          <img class="calc-photo" :src="photoSrc" :alt="`${content.name} — project photo`" />
         </div>
         <p class="calc-intro">{{ content.intro }}</p>
       </div>
@@ -203,6 +207,15 @@ useSEO(
   max-width: 680px;
   font-size: 0.95rem;
   color: var(--ink-faint);
+}
+
+.calc-photo {
+  margin-left: auto;
+  width: 210px;
+  height: 118px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
 }
 
 .calc-switcher {
@@ -341,6 +354,10 @@ useSEO(
 
   .calc-head {
     padding-block: 36px 8px;
+  }
+
+  .calc-photo {
+    display: none;
   }
 
   .related-grid {

@@ -136,6 +136,13 @@ export const legalPages: Record<'privacy' | 'terms' | 'about' | 'contact', Legal
         ],
       },
       {
+        heading: 'Photo Credits',
+        paragraphs: [
+          'The photography on this site comes from openly licensed Creative Commons collections (Wikimedia Commons and Flickr, via the Openverse catalog). We are grateful to the creators below for sharing their work.',
+          'Wood-framed house by Jaksmata, CC BY-SA 3.0 (creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons. Concrete pour by MTA C&D - East Side Access, CC BY 2.0, via Flickr. Indoor painting supplies by David Mulder, CC BY-SA 2.0, via Wikimedia Commons. Laminate installation by Lee J Haywood, CC BY-SA 2.0, via Flickr. Mulch Mania by terren in Virginia, CC BY 2.0, via Flickr. Gravel driveway base by sebilden, CC BY 2.0, via Flickr. Drywall installation by OlgerFallasPainting, CC BY-SA 2.0, via Flickr. Tile work by MrVJTod, CC BY-SA 2.0, via Flickr. Roof install by joncallas, CC BY 2.0, via Flickr. Measuring tapes by chimpwithcan, CC BY 2.0, via Flickr.',
+        ],
+      },
+      {
         heading: 'Contact',
         paragraphs: [
           'Reach us any time at hello@buildcalc.pages.dev. We read every message and typically reply within 2–3 business days.',

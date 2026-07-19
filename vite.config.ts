@@ -7,6 +7,7 @@ import { guides } from './src/data/guides'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/BuildCalc/', // GitHub Pages 项目站点子路径
   build: {
     sourcemap: 'hidden',
   },

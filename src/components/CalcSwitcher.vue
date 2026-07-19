@@ -29,7 +29,9 @@ const shortName = (name: string) => name.replace(' Calculator', '')
   display: flex;
   gap: 4px;
   padding: 6px;
-  background: var(--paper-sunk);
+  background: rgba(241, 236, 227, 0.68);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius-lg);
   overflow-x: auto;

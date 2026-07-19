@@ -4,10 +4,11 @@ import { ArrowRight, ArrowUpRight, Search, ShieldCheck, FileText, Zap } from 'lu
 import { calculatorMetas } from '@/data/calculators'
 import ToolIcon from '@/components/ToolIcon.vue'
 import AdSlot from '@/components/AdSlot.vue'
-import { useSEO, SITE_NAME } from '@/composables/useSEO'
+import { useSEO, SITE_NAME, SITE_URL } from '@/composables/useSEO'
+import { asset } from '@/utils/asset'
 
 useSEO({
-  title: 'BuildCalc — Free Construction Material Calculators',
+  title: 'BuildCalc — Free Construction Calculators: Concrete, Paint, Flooring & More',
   description:
     'Free online calculators for concrete, paint, flooring, mulch, gravel, drywall, tile and roofing. Transparent formulas, instant results, no sign-up.',
   path: '/',
@@ -15,9 +16,12 @@ useSEO({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: SITE_NAME,
-    url: 'https://buildcalc.pages.dev/',
+    url: `${SITE_URL}/`,
   },
 })
+
+// 工具卡片配图：public/images/tool-{slug}.jpg
+const toolImage = (slug: string) => asset(`images/tool-${slug}.jpg`)
 
 // 搜索框：按名称/描述/分类过滤工具卡片，按 "/" 快速聚焦
 const query = ref('')
@@ -45,9 +49,24 @@ onMounted(() => window.addEventListener('keydown', onKeydown))
 onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
 
 const featuredGuides = [
-  { slug: 'how-to-measure-concrete-for-a-patio', title: 'How to Measure Concrete for a Patio' },
-  { slug: 'how-much-paint-do-i-need', title: 'How Much Paint Do I Need?' },
-  { slug: 'flooring-measurement-guide', title: 'Flooring Measurement Guide' },
+  {
+    slug: 'how-to-measure-concrete-for-a-patio',
+    title: 'How to Measure Concrete for a Patio',
+    image: 'images/tool-concrete.jpg',
+    alt: 'Concrete being poured and finished on a slab',
+  },
+  {
+    slug: 'how-much-paint-do-i-need',
+    title: 'How Much Paint Do I Need?',
+    image: 'images/tool-paint.jpg',
+    alt: 'Paint rollers, tray and cans ready for a room repaint',
+  },
+  {
+    slug: 'flooring-measurement-guide',
+    title: 'Flooring Measurement Guide',
+    image: 'images/tool-flooring.jpg',
+    alt: 'Laminate flooring being installed in a bedroom',
+  },
 ]
 
 const trustItems = [
@@ -58,16 +77,27 @@ const trustItems = [
 </script>
 
 <template>
-  <!-- Hero（紧凑横幅：品牌 + 信任点，功能全部下放） -->
-  <section class="hero blueprint-bg">
-    <div class="container hero-inner">
-      <h1 class="hero-title">Measure right. Buy right.</h1>
-      <ul class="hero-trust">
-        <li v-for="t in trustItems" :key="t.text">
-          <component :is="t.icon" :size="15" />
-          <span>{{ t.text }}</span>
-        </li>
-      </ul>
+  <!-- Hero：施工实景大图 + 渐变遮罩 + 玻璃信任徽章 -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-panel">
+        <img
+          class="hero-bg"
+          :src="asset('images/hero-construction.jpg')"
+          alt="Wood-framed house under construction"
+          fetchpriority="high"
+        />
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <h1 class="hero-title">Measure right. Buy right.</h1>
+          <ul class="hero-trust">
+            <li v-for="t in trustItems" :key="t.text" class="glass-chip">
+              <component :is="t.icon" :size="15" />
+              <span>{{ t.text }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -101,8 +131,13 @@ const trustItems = [
           :to="`/${c.slug}-calculator/`"
           class="tool-card"
         >
-          <span class="tool-icon"><ToolIcon :name="c.icon" :size="26" /></span>
-          <span class="tool-name">{{ c.name }}</span>
+          <span class="tool-media">
+            <img :src="toolImage(c.slug)" :alt="`${c.name}: ${c.tagline}`" loading="lazy" decoding="async" />
+          </span>
+          <span class="tool-body">
+            <span class="tool-icon"><ToolIcon :name="c.icon" :size="26" /></span>
+            <span class="tool-name">{{ c.name }}</span>
+          </span>
           <span class="tool-go" aria-hidden="true"><ArrowUpRight :size="20" /></span>
         </router-link>
       </div>
@@ -130,6 +165,7 @@ const trustItems = [
           :to="`/guides/${g.slug}/`"
           class="guide-row"
         >
+          <img class="guide-thumb" :src="asset(g.image)" :alt="g.alt" loading="lazy" decoding="async" />
           <h3 class="guide-title">{{ g.title }}</h3>
           <span class="guide-go" aria-hidden="true"><ArrowUpRight :size="22" /></span>
         </router-link>
@@ -139,46 +175,80 @@ const trustItems = [
 </template>
 
 <style scoped>
-/* ---------- Hero（紧凑） ---------- */
+/* ---------- Hero（实景大图 + 渐变 + 玻璃徽章） ---------- */
 .hero {
-  color: var(--on-slate);
+  padding-top: 24px;
+}
+
+.hero-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--slate);
+  box-shadow: var(--shadow-2);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 左侧深 slate 保证文字对比，右侧透出实景；角落微光晕 */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(90% 120% at 88% 8%, rgba(232, 93, 47, 0.32) 0%, transparent 55%),
+    linear-gradient(98deg, rgba(28, 35, 33, 0.93) 18%, rgba(46, 58, 56, 0.62) 55%, rgba(46, 58, 56, 0.22) 100%);
 }
 
 .hero-inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  padding-block: 40px;
+  padding: clamp(40px, 6vw, 72px) clamp(24px, 4vw, 56px);
 }
 
 .hero-title {
   color: var(--on-slate);
-  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 700;
   letter-spacing: -0.02em;
+  text-shadow: 0 2px 18px rgba(28, 35, 33, 0.45);
 }
 
 .hero-trust {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 24px;
+  justify-content: flex-end;
+  gap: 10px;
   padding: 0;
   margin: 0;
   list-style: none;
   flex-shrink: 0;
 }
 
-.hero-trust li {
+.glass-chip {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid var(--glass-line);
+  border-radius: 999px;
+  background: rgba(244, 240, 233, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--on-slate-soft);
+  color: var(--on-slate);
 }
 
-.hero-trust svg {
+.glass-chip svg {
   color: var(--accent);
 }
 
@@ -259,14 +329,15 @@ const trustItems = [
 .tool-card {
   position: relative;
   display: grid;
-  gap: 16px;
-  align-content: space-between;
-  min-height: 200px;
-  padding: 26px;
+  gap: 18px;
+  align-content: start;
+  min-height: 240px;
+  padding: 0 0 24px;
   background: var(--paper-raised);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-1);
+  overflow: hidden;
   transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
 }
 
@@ -276,14 +347,48 @@ const trustItems = [
   box-shadow: var(--shadow-2);
 }
 
+/* 顶部实景图条带 + 融入卡片的渐变遮罩 */
+.tool-media {
+  position: relative;
+  display: block;
+  height: 108px;
+  overflow: hidden;
+}
+
+.tool-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tool-card:hover .tool-media img {
+  transform: scale(1.06);
+}
+
+.tool-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, var(--paper-raised) 100%);
+}
+
+.tool-body {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 22px;
+}
+
 .tool-icon {
   display: grid;
   place-items: center;
-  width: 56px;
-  height: 56px;
+  width: 50px;
+  height: 50px;
   border-radius: 14px;
   background: var(--accent-soft);
   color: var(--accent-strong);
+  flex-shrink: 0;
   transition: background 160ms ease, color 160ms ease;
 }
 
@@ -294,7 +399,7 @@ const trustItems = [
 
 .tool-name {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.2;
   color: var(--ink);
@@ -302,18 +407,27 @@ const trustItems = [
 
 .tool-go {
   position: absolute;
-  top: 24px;
-  right: 24px;
-  color: var(--ink-faint);
+  top: 74px;
+  right: 16px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--glass-dark);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--on-slate);
   opacity: 0;
   transform: translate(-6px, 6px);
-  transition: opacity 160ms ease, transform 160ms ease, color 160ms ease;
+  transition: opacity 160ms ease, transform 160ms ease, background 160ms ease;
 }
 
 .tool-card:hover .tool-go {
   opacity: 1;
   transform: none;
-  color: var(--accent);
+  background: var(--accent);
 }
 
 .tool-empty {
@@ -361,9 +475,8 @@ const trustItems = [
 .guide-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 24px;
-  padding: 32px 36px;
+  padding: 22px 28px;
   background: var(--paper-raised);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius-lg);
@@ -376,8 +489,17 @@ const trustItems = [
   box-shadow: var(--shadow-2);
 }
 
+.guide-thumb {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
 .guide-title {
-  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+  flex: 1;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
 }
 
 .guide-go {
@@ -406,11 +528,19 @@ const trustItems = [
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding-top: 14px;
+  }
+
   .hero-inner {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
-    padding-block: 32px;
+    gap: 18px;
+    padding: 36px 22px;
+  }
+
+  .hero-trust {
+    justify-content: flex-start;
   }
 
   .tools-head {
@@ -423,17 +553,19 @@ const trustItems = [
   }
 
   .guide-row {
-    padding: 24px 22px;
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .guide-thumb {
+    width: 64px;
+    height: 64px;
   }
 }
 
 @media (max-width: 560px) {
   .tool-grid {
     grid-template-columns: 1fr;
-  }
-
-  .tool-card {
-    min-height: 170px;
   }
 
   .tools-search-kbd {

@@ -70,7 +70,9 @@ watch(
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--slate);
+  background: rgba(46, 58, 56, 0.82);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  backdrop-filter: blur(14px) saturate(1.3);
   border-bottom: 1px solid rgba(244, 240, 233, 0.1);
 }
 
@@ -142,7 +144,9 @@ watch(
   padding: 8px;
   display: grid;
   gap: 2px;
-  background: var(--paper-raised);
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  backdrop-filter: blur(16px) saturate(1.2);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-2);
