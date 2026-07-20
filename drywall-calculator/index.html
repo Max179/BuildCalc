@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/BuildCalc/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2E3A38" />
+    <title>Drywall Calculator — Free, Instant Results | BuildCalc</title>
+    <meta
+      name="description"
+      content="Enter your room dimensions, wall height and the number of doors and windows to find out how many 4×8, 4×10 or 4×12 drywall sheets you need for the walls."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      async=""
+      crossorigin=""
+      src="/BuildCalc/assets/app-Dd-7Z5u3.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      crossorigin=""
+      href="/BuildCalc/assets/app-DgtQhOia.css"
+    />
+    <meta
+      property="og:title"
+      content="Drywall Calculator — Free, Instant Results | BuildCalc"
+    />
+    <meta
+      property="og:description"
+      content="Enter your room dimensions, wall height and the number of doors and windows to find out how many 4×8, 4×10 or 4×12 drywall sheets you need for the walls."
+    />
+    <meta
+      property="og:url"
+      content="https://max179.github.io/BuildCalc/drywall-calculator/"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BuildCalc" />
+    <meta
+      property="og:image"
+      content="https://max179.github.io/BuildCalc/images/og-image.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://max179.github.io/BuildCalc/images/og-image.jpg"
+    />
+    <link
+      rel="canonical"
+      href="https://max179.github.io/BuildCalc/drywall-calculator/"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Drywall Calculator",
+        "url": "https://max179.github.io/BuildCalc/drywall-calculator/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Enter your room dimensions, wall height and the number of doors and windows to find out how many 4×8, 4×10 or 4×12 drywall sheets you need for the walls."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How many sheets of drywall do I need for a 12×12 room?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "With 8 ft ceilings a 12×12 room has 384 sq ft of wall. Subtract one door (21 sq ft) and one window (15 sq ft) and you need about 348 sq ft — that is 11 sheets of 4×8, 9 sheets of 4×10 or 8 sheets of 4×12."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much drywall do I need for a 2,000 sq ft house?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A common rule of thumb is 3.5–4 sq ft of drywall per square foot of floor area once you include walls, ceilings and closets. A 2,000 sq ft home typically needs about 7,000–8,000 sq ft, or roughly 220–250 sheets of 4×8."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What thickness of drywall should I use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "1/2 in is the standard for interior walls. Use 5/8 in (Type X) on ceilings, garages and anywhere a fire rating is required; 1/4 in panels are for curved walls or laminating over old surfaces."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should drywall be hung horizontally or vertically?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Horizontally (perpendicular to the studs) is the pro standard on walls: fewer joints, seams at a comfortable working height and better bracing of the framing. Hang vertically only when the sheet length matches the wall height exactly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many screws do I need per sheet of drywall?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Plan on about 32 screws per 4×8 sheet on walls (16 in on center) and up to 48 on ceilings (12 in on center). A 1 lb box of 1-1/4 in drywall screws holds roughly 250–300 screws."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does a sheet of drywall weigh?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A standard 1/2 in 4×8 sheet weighs about 50–54 lb; lightweight panels run 38–40 lb; a 5/8 in 4×8 sheet is 70 lb or more. A 4×12 sheet of 1/2 in can top 80 lb — plan on two people or a panel lift."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this calculator include the ceiling?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No — it covers walls only. For a ceiling, multiply room length × width and divide by the sheet coverage: a 12×12 ceiling is 144 sq ft, or 5 sheets of 4×8. Use 5/8 in or sag-resistant panels on ceilings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much extra drywall should I buy for waste?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Add about 10%. Offcuts around doors, windows and outlets are rarely reusable, and one damaged sheet mid-project costs far more time than a spare sheet costs money."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between drywall, Sheetrock and gypsum board?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "They are the same product — drywall and gypsum board are generic names, while Sheetrock is a USG brand. Green board and purple board are moisture- and mold-resistant variants for bathrooms and basements."
+            }
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://max179.github.io/BuildCalc/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Drywall Calculator",
+            "item": "https://max179.github.io/BuildCalc/drywall-calculator/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true">
+      <!--[-->
+      <header class="site-header" data-v-a333d272="">
+        <div class="container header-inner" data-v-a333d272="">
+          <a
+            href="/BuildCalc/"
+            class="brand"
+            aria-label="BuildCalc home"
+            data-v-a333d272=""
+            ><span class="brand-mark" data-v-a333d272=""
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-hammer-icon lucide-hammer"
+                data-v-a333d272=""
+              >
+                <path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"></path>
+                <path d="m18 15 4-4"></path>
+                <path
+                  d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"
+                ></path></svg></span
+            ><span class="brand-name" data-v-a333d272="">BuildCalc</span></a
+          >
+          <nav class="nav-desktop" aria-label="Primary" data-v-a333d272="">
+            <div class="nav-item" data-v-a333d272="">
+              <a
+                href="/BuildCalc/#calculators"
+                class="nav-link nav-dropdown-toggle"
+                data-v-a333d272=""
+              >
+                Calculators
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-chevron-down-icon lucide-chevron-down"
+                  data-v-a333d272=""
+                >
+                  <path d="m6 9 6 6 6-6"></path></svg
+              ></a>
+              <div class="dropdown" data-v-a333d272="">
+                <!--[--><a
+                  href="/BuildCalc/concrete-calculator/"
+                  class="dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-blocks-icon lucide-blocks"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                    <path
+                      d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"
+                    ></path></svg
+                  ><span data-v-a333d272="">Concrete Calculator</span></a
+                ><a
+                  href="/BuildCalc/paint-calculator/"
+                  class="dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-paint-roller-icon lucide-paint-roller"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <rect width="16" height="6" x="2" y="2" rx="2"></rect>
+                    <path
+                      d="M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"
+                    ></path>
+                    <rect width="4" height="6" x="8" y="16" rx="1"></rect></svg
+                  ><span data-v-a333d272="">Paint Calculator</span></a
+                ><a
+                  href="/BuildCalc/flooring-calculator/"
+                  class="dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-layers-icon lucide-layers"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <path
+                      d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"
+                    ></path>
+                    <path
+                      d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"
+                    ></path>
+                    <path
+                      d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"
+                    ></path></svg
+                  ><span data-v-a333d272="">Flooring Calculator</span></a
+                ><a
+                  href="/BuildCalc/mulch-calculator/"
+                  class="dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-sprout-icon lucide-sprout"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <path d="M7 20h10"></path>
+                    <path d="M10 20c5.5-2.5.8-6.4 3-10"></path>
+                    <path
+                      d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"
+                    ></path>
+                    <path
+                      d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"
+                    ></path></svg
+                  ><span data-v-a333d272="">Mulch Calculator</span></a
+                ><a
+                  href="/BuildCalc/gravel-calculator/"
+                  class="dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-mountain-icon lucide-mountain"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path></svg
+                  ><span data-v-a333d272="">Gravel Calculator</span></a
+                ><a
+                  aria-current="page"
+                  href="/BuildCalc/drywall-calculator/"
+                  class="router-link-active router-link-exact-active dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-square-icon lucide-square"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <rect width="18" height="18" x="3" y="3" rx="2"></rect></svg
+                  ><span data-v-a333d272="">Drywall Calculator</span></a
+                ><a
+                  href="/BuildCalc/tile-calculator/"
+                  class="dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-layout-grid-icon lucide-layout-grid"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+                    <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                    <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+                    <rect width="7" height="7" x="3" y="14" rx="1"></rect></svg
+                  ><span data-v-a333d272="">Tile Calculator</span></a
+                ><a
+                  href="/BuildCalc/roofing-calculator/"
+                  class="dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-house-icon lucide-house"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                    <path
+                      d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                    ></path></svg
+                  ><span data-v-a333d272="">Roofing Calculator</span></a
+                ><!--]-->
+              </div>
+            </div>
+            <a href="/BuildCalc/guides/" class="nav-link" data-v-a333d272=""
+              >Guides</a
+            ><a href="/BuildCalc/about/" class="nav-link" data-v-a333d272=""
+              >About</a
+            >
+          </nav>
+          <button
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            data-v-a333d272=""
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-menu-icon lucide-menu"
+              data-v-a333d272=""
+            >
+              <path d="M4 12h16"></path>
+              <path d="M4 18h16"></path>
+              <path d="M4 6h16"></path>
+            </svg>
+          </button>
+        </div>
+        <nav
+          class="nav-mobile"
+          aria-label="Mobile"
+          style="display: none"
+          data-v-a333d272=""
+        >
+          <a
+            href="/BuildCalc/#calculators"
+            class="nav-mobile-link"
+            data-v-a333d272=""
+            >Calculators</a
+          ><a
+            href="/BuildCalc/guides/"
+            class="nav-mobile-link"
+            data-v-a333d272=""
+            >Guides</a
+          ><a
+            href="/BuildCalc/about/"
+            class="nav-mobile-link"
+            data-v-a333d272=""
+            >About</a
+          ><a
+            href="/BuildCalc/contact/"
+            class="nav-mobile-link"
+            data-v-a333d272=""
+            >Contact</a
+          >
+        </nav>
+      </header>
+      <main>
+        <div data-v-713e29a2="">
+          <section class="calc-head" data-v-713e29a2="">
+            <div class="container" data-v-713e29a2="">
+              <nav
+                class="breadcrumb"
+                aria-label="Breadcrumb"
+                data-v-713e29a2=""
+              >
+                <a href="/BuildCalc/" class="" data-v-713e29a2="">Home</a
+                ><span aria-hidden="true" data-v-713e29a2="">/</span
+                ><span data-v-713e29a2="">Drywall Calculator</span>
+              </nav>
+              <div class="calc-title-row" data-v-713e29a2="">
+                <span class="calc-title-icon" data-v-713e29a2=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-square-icon lucide-square"
+                    aria-hidden="true"
+                    data-v-713e29a2=""
+                  >
+                    <rect width="18" height="18" x="3" y="3" rx="2"></rect></svg
+                ></span>
+                <h1 data-v-713e29a2="">Drywall Calculator</h1>
+                <img
+                  class="calc-photo"
+                  src="/BuildCalc/images/tool-drywall.jpg"
+                  alt="Drywall Calculator — project photo"
+                  data-v-713e29a2=""
+                />
+              </div>
+              <p class="calc-intro" data-v-713e29a2="">
+                Enter your room dimensions, wall height and the number of doors
+                and windows to find out how many 4×8, 4×10 or 4×12 drywall
+                sheets you need for the walls.
+              </p>
+            </div>
+          </section>
+          <section class="calc-section" data-v-713e29a2="">
+            <div class="container" data-v-713e29a2="">
+              <nav
+                class="switcher calc-switcher"
+                aria-label="Switch calculator"
+                data-v-713e29a2=""
+                data-v-00f89021=""
+              >
+                <!--[--><a
+                  href="/BuildCalc/concrete-calculator/"
+                  class="switcher-item"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-blocks-icon lucide-blocks"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                    <path
+                      d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"
+                    ></path></svg
+                  ><span data-v-00f89021="">Concrete</span></a
+                ><a
+                  href="/BuildCalc/paint-calculator/"
+                  class="switcher-item"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-paint-roller-icon lucide-paint-roller"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <rect width="16" height="6" x="2" y="2" rx="2"></rect>
+                    <path
+                      d="M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"
+                    ></path>
+                    <rect width="4" height="6" x="8" y="16" rx="1"></rect></svg
+                  ><span data-v-00f89021="">Paint</span></a
+                ><a
+                  href="/BuildCalc/flooring-calculator/"
+                  class="switcher-item"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-layers-icon lucide-layers"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <path
+                      d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"
+                    ></path>
+                    <path
+                      d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"
+                    ></path>
+                    <path
+                      d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"
+                    ></path></svg
+                  ><span data-v-00f89021="">Flooring</span></a
+                ><a
+                  href="/BuildCalc/mulch-calculator/"
+                  class="switcher-item"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-sprout-icon lucide-sprout"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <path d="M7 20h10"></path>
+                    <path d="M10 20c5.5-2.5.8-6.4 3-10"></path>
+                    <path
+                      d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"
+                    ></path>
+                    <path
+                      d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"
+                    ></path></svg
+                  ><span data-v-00f89021="">Mulch</span></a
+                ><a
+                  href="/BuildCalc/gravel-calculator/"
+                  class="switcher-item"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-mountain-icon lucide-mountain"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path></svg
+                  ><span data-v-00f89021="">Gravel</span></a
+                ><a
+                  aria-current="page"
+                  href="/BuildCalc/drywall-calculator/"
+                  class="router-link-active router-link-exact-active switcher-item active"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-square-icon lucide-square"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <rect width="18" height="18" x="3" y="3" rx="2"></rect></svg
+                  ><span data-v-00f89021="">Drywall</span></a
+                ><a
+                  href="/BuildCalc/tile-calculator/"
+                  class="switcher-item"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-layout-grid-icon lucide-layout-grid"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+                    <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                    <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+                    <rect width="7" height="7" x="3" y="14" rx="1"></rect></svg
+                  ><span data-v-00f89021="">Tile</span></a
+                ><a
+                  href="/BuildCalc/roofing-calculator/"
+                  class="switcher-item"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-house-icon lucide-house"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                    <path
+                      d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                    ></path></svg
+                  ><span data-v-00f89021="">Roofing</span></a
+                ><!--]-->
+              </nav>
+              <div class="card calc-card" data-v-713e29a2="">
+                <div class="calc-grid" data-v-713e29a2="">
+                  <form class="calc-form">
+                    <fieldset class="calc-fieldset">
+                      <legend class="calc-legend">Room length</legend>
+                      <div class="input-pair">
+                        <div class="input-suffix">
+                          <input
+                            value="12"
+                            class="input"
+                            type="number"
+                            min="0"
+                            inputmode="decimal"
+                            aria-label="Room length in feet"
+                          /><span class="suffix">ft</span>
+                        </div>
+                        <div class="input-suffix">
+                          <input
+                            value="0"
+                            class="input"
+                            type="number"
+                            min="0"
+                            inputmode="decimal"
+                            aria-label="Room length in inches"
+                          /><span class="suffix">in</span>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <fieldset class="calc-fieldset">
+                      <legend class="calc-legend">Room width</legend>
+                      <div class="input-pair">
+                        <div class="input-suffix">
+                          <input
+                            value="12"
+                            class="input"
+                            type="number"
+                            min="0"
+                            inputmode="decimal"
+                            aria-label="Room width in feet"
+                          /><span class="suffix">ft</span>
+                        </div>
+                        <div class="input-suffix">
+                          <input
+                            value="0"
+                            class="input"
+                            type="number"
+                            min="0"
+                            inputmode="decimal"
+                            aria-label="Room width in inches"
+                          /><span class="suffix">in</span>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <div class="field">
+                      <label class="label" for="wall-height">Wall height</label>
+                      <div class="input-suffix">
+                        <input
+                          id="wall-height"
+                          value="8"
+                          class="input"
+                          type="number"
+                          min="0"
+                          inputmode="decimal"
+                        /><span class="suffix">ft</span>
+                      </div>
+                      <span class="field-hint"
+                        >8 ft is standard · 9–10 ft in many newer homes</span
+                      >
+                    </div>
+                    <div class="field">
+                      <label class="label" for="doors">Doors</label
+                      ><input
+                        id="doors"
+                        value="1"
+                        class="input"
+                        type="number"
+                        min="0"
+                        step="1"
+                        inputmode="numeric"
+                      /><span class="field-hint"
+                        >21 sq ft deducted per standard 3×7 ft door</span
+                      >
+                    </div>
+                    <div class="field">
+                      <label class="label" for="windows">Windows</label
+                      ><input
+                        id="windows"
+                        value="1"
+                        class="input"
+                        type="number"
+                        min="0"
+                        step="1"
+                        inputmode="numeric"
+                      /><span class="field-hint"
+                        >15 sq ft deducted per average 3×5 ft window</span
+                      >
+                    </div>
+                    <div class="field">
+                      <label class="label" for="sheet-size">Sheet size</label
+                      ><select id="sheet-size" class="select">
+                        <!--[-->
+                        <option value="32" selected="">
+                          4 × 8 ft — 32 sq ft per sheet
+                        </option>
+                        <option value="40">
+                          4 × 10 ft — 40 sq ft per sheet
+                        </option>
+                        <option value="48">
+                          4 × 12 ft — 48 sq ft per sheet
+                        </option>
+                        <!--]--></select
+                      ><span class="field-hint"
+                        >Walls only — order ~10% extra for cuts &amp;
+                        damage</span
+                      >
+                    </div>
+                  </form>
+                  <div class="calc-results">
+                    <!--[-->
+                    <div class="stat primary" data-v-7666ccc3="">
+                      <span class="stat-label" data-v-7666ccc3=""
+                        >Sheets needed</span
+                      ><span class="stat-value mono" data-v-7666ccc3=""
+                        >11<small class="stat-unit" data-v-7666ccc3=""
+                          >sheets</small
+                        ></span
+                      ><span class="stat-note" data-v-7666ccc3=""
+                        >4 × 8 ft · 32 sq ft per sheet</span
+                      >
+                    </div>
+                    <div class="calc-results-grid">
+                      <div class="stat" data-v-7666ccc3="">
+                        <span class="stat-label" data-v-7666ccc3=""
+                          >Wall area</span
+                        ><span class="stat-value mono" data-v-7666ccc3=""
+                          >348<small class="stat-unit" data-v-7666ccc3=""
+                            >sq ft</small
+                          ></span
+                        ><span class="stat-note" data-v-7666ccc3=""
+                          >after openings</span
+                        >
+                      </div>
+                      <div class="stat" data-v-7666ccc3="">
+                        <span class="stat-label" data-v-7666ccc3=""
+                          >Sheet size</span
+                        ><span class="stat-value mono" data-v-7666ccc3=""
+                          >4 × 8 ft<!----></span
+                        ><span class="stat-note" data-v-7666ccc3=""
+                          >32 sq ft per sheet</span
+                        >
+                      </div>
+                      <div class="stat" data-v-7666ccc3="">
+                        <span class="stat-label" data-v-7666ccc3=""
+                          >Openings deducted</span
+                        ><span class="stat-value mono" data-v-7666ccc3=""
+                          >36<small class="stat-unit" data-v-7666ccc3=""
+                            >sq ft</small
+                          ></span
+                        ><span class="stat-note" data-v-7666ccc3=""
+                          >doors &amp; windows</span
+                        >
+                      </div>
+                    </div>
+                    <!--]-->
+                  </div>
+                </div>
+              </div>
+              <aside
+                class="buy-box"
+                aria-label="Where to buy"
+                data-v-713e29a2=""
+                data-v-c49e9d0f=""
+              >
+                <div class="buy-head" data-v-c49e9d0f="">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+                    data-v-c49e9d0f=""
+                  >
+                    <circle cx="8" cy="21" r="1"></circle>
+                    <circle cx="19" cy="21" r="1"></circle>
+                    <path
+                      d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+                    ></path>
+                  </svg>
+                  <h3 data-v-c49e9d0f="">Buy materials for this project</h3>
+                </div>
+                <ul class="buy-list" data-v-c49e9d0f="">
+                  <!--[-->
+                  <li data-v-c49e9d0f="">
+                    <a
+                      href="https://www.amazon.com/s?k=drywall+screws+1+1+4+inch"
+                      target="_blank"
+                      rel="sponsored nofollow noopener"
+                      class="buy-link"
+                      data-v-c49e9d0f=""
+                      ><span class="buy-label" data-v-c49e9d0f=""
+                        >Drywall Screws (1-1/4 in)</span
+                      ><span class="buy-note" data-v-c49e9d0f=""
+                        >≈ 1 lb per 500 sq ft</span
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right buy-arrow"
+                        data-v-c49e9d0f=""
+                      >
+                        <path d="M7 7h10v10"></path>
+                        <path d="M7 17 17 7"></path></svg
+                    ></a>
+                  </li>
+                  <li data-v-c49e9d0f="">
+                    <a
+                      href="https://www.amazon.com/s?k=all+purpose+joint+compound"
+                      target="_blank"
+                      rel="sponsored nofollow noopener"
+                      class="buy-link"
+                      data-v-c49e9d0f=""
+                      ><span class="buy-label" data-v-c49e9d0f=""
+                        >All-Purpose Joint Compound</span
+                      ><span class="buy-note" data-v-c49e9d0f=""
+                        >≈ 0.05 gal per sheet</span
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right buy-arrow"
+                        data-v-c49e9d0f=""
+                      >
+                        <path d="M7 7h10v10"></path>
+                        <path d="M7 17 17 7"></path></svg
+                    ></a>
+                  </li>
+                  <li data-v-c49e9d0f="">
+                    <a
+                      href="https://www.amazon.com/s?k=drywall+taping+knife+set"
+                      target="_blank"
+                      rel="sponsored nofollow noopener"
+                      class="buy-link"
+                      data-v-c49e9d0f=""
+                      ><span class="buy-label" data-v-c49e9d0f=""
+                        >Drywall Knife Set</span
+                      ><span class="buy-note" data-v-c49e9d0f=""
+                        >6", 10" &amp; 12" taping knives</span
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right buy-arrow"
+                        data-v-c49e9d0f=""
+                      >
+                        <path d="M7 7h10v10"></path>
+                        <path d="M7 17 17 7"></path></svg
+                    ></a>
+                  </li>
+                  <!--]-->
+                </ul>
+                <p class="buy-disclosure" data-v-c49e9d0f="">
+                  Prices are estimates and may vary by store. As an affiliate,
+                  we may earn a commission on qualifying purchases at no extra
+                  cost to you.
+                </p>
+              </aside>
+              <div
+                class="ad-wrap ad-horizontal"
+                data-v-713e29a2=""
+                data-v-5a8da889=""
+              >
+                <div
+                  class="ad-slot"
+                  role="complementary"
+                  aria-label="Advertisement placeholder"
+                  data-v-5a8da889=""
+                >
+                  <span data-v-5a8da889="">Advertisement</span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="section-sm" data-v-713e29a2="">
+            <div class="container prose-wrap" data-v-713e29a2="">
+              <h2 data-v-713e29a2="">
+                How to calculate how much drywall you need
+              </h2>
+              <ol class="howto-list" data-v-713e29a2="">
+                <!--[-->
+                <li data-v-713e29a2="">
+                  Measure the length and width of the room in feet, add them
+                  together and multiply by two to get the perimeter. Multiply
+                  the perimeter by the wall height to get the gross wall area in
+                  square feet. Standard ceilings are 8 feet; many newer homes
+                  have 9 or 10 foot walls.
+                </li>
+                <li data-v-713e29a2="">
+                  Subtract the openings you will not cover: about 21 square feet
+                  for each standard door (3 × 7 ft) and about 15 square feet for
+                  each average window (3 × 5 ft). That gives you the net wall
+                  area that actually needs drywall.
+                </li>
+                <li data-v-713e29a2="">
+                  Divide the net area by the coverage of one sheet: a 4×8 sheet
+                  covers 32 sq ft, a 4×10 covers 40 sq ft and a 4×12 covers 48
+                  sq ft. Round up to the next whole sheet — offcuts around doors
+                  and windows are rarely reusable, so most pros order about 10%
+                  extra.
+                </li>
+                <!--]-->
+              </ol>
+              <div class="formula-box" data-v-713e29a2="">
+                <span class="formula-label" data-v-713e29a2="">Formula</span
+                ><code class="mono" data-v-713e29a2=""
+                  >Wall area (sq ft) = 2 × (Length + Width) × Height − (Doors ×
+                  21 + Windows × 15). Sheets = Wall area ÷ Sheet coverage (32 /
+                  40 / 48 sq ft), rounded up.</code
+                >
+              </div>
+            </div>
+          </section>
+          <section class="section-sm" data-v-713e29a2="">
+            <div class="container prose-wrap" data-v-713e29a2="">
+              <h2 data-v-713e29a2="">Drywall sheet sizes and coverage</h2>
+              <table class="data-table" data-v-713e29a2="">
+                <thead data-v-713e29a2="">
+                  <tr data-v-713e29a2="">
+                    <!--[-->
+                    <th data-v-713e29a2="">Sheet size</th>
+                    <th data-v-713e29a2="">Coverage per sheet</th>
+                    <th data-v-713e29a2="">Sheets per 1,000 sq ft</th>
+                    <th data-v-713e29a2="">Best for</th>
+                    <!--]-->
+                  </tr>
+                </thead>
+                <tbody data-v-713e29a2="">
+                  <!--[-->
+                  <tr data-v-713e29a2="">
+                    <!--[-->
+                    <td class="" data-v-713e29a2="">4 × 8 ft</td>
+                    <td class="num" data-v-713e29a2="">32 sq ft</td>
+                    <td class="num" data-v-713e29a2="">32</td>
+                    <td class="num" data-v-713e29a2="">
+                      DIY — lightest and easiest to handle
+                    </td>
+                    <!--]-->
+                  </tr>
+                  <tr data-v-713e29a2="">
+                    <!--[-->
+                    <td class="" data-v-713e29a2="">4 × 10 ft</td>
+                    <td class="num" data-v-713e29a2="">40 sq ft</td>
+                    <td class="num" data-v-713e29a2="">25</td>
+                    <td class="num" data-v-713e29a2="">
+                      9 ft walls, fewer butt joints
+                    </td>
+                    <!--]-->
+                  </tr>
+                  <tr data-v-713e29a2="">
+                    <!--[-->
+                    <td class="" data-v-713e29a2="">4 × 12 ft</td>
+                    <td class="num" data-v-713e29a2="">48 sq ft</td>
+                    <td class="num" data-v-713e29a2="">21</td>
+                    <td class="num" data-v-713e29a2="">
+                      Long walls, fewest seams
+                    </td>
+                    <!--]-->
+                  </tr>
+                  <tr data-v-713e29a2="">
+                    <!--[-->
+                    <td class="" data-v-713e29a2="">4 × 14 ft</td>
+                    <td class="num" data-v-713e29a2="">56 sq ft</td>
+                    <td class="num" data-v-713e29a2="">18</td>
+                    <td class="num" data-v-713e29a2="">
+                      Pro crews on large rooms
+                    </td>
+                    <!--]-->
+                  </tr>
+                  <tr data-v-713e29a2="">
+                    <!--[-->
+                    <td class="" data-v-713e29a2="">4 × 16 ft</td>
+                    <td class="num" data-v-713e29a2="">64 sq ft</td>
+                    <td class="num" data-v-713e29a2="">16</td>
+                    <td class="num" data-v-713e29a2="">
+                      Pro crews on large rooms
+                    </td>
+                    <!--]-->
+                  </tr>
+                  <!--]-->
+                </tbody>
+              </table>
+              <p class="table-note muted" data-v-713e29a2="">
+                All sheets are 4 ft wide. 1/2 in thick is standard for walls;
+                5/8 in (Type X) for ceilings and fire-rated walls.
+              </p>
+            </div>
+          </section>
+          <section class="section-sm" data-v-713e29a2="">
+            <div class="container prose-wrap" data-v-713e29a2="">
+              <h2 data-v-713e29a2="">Frequently asked questions</h2>
+              <div class="faq" data-v-713e29a2="" data-v-caaee4c8="">
+                <!--[-->
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="true"
+                    aria-controls="faq-panel-0"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >How many sheets of drywall do I need for a 12×12
+                      room?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron open"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-0" class="open faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        With 8 ft ceilings a 12×12 room has 384 sq ft of wall.
+                        Subtract one door (21 sq ft) and one window (15 sq ft)
+                        and you need about 348 sq ft — that is 11 sheets of 4×8,
+                        9 sheets of 4×10 or 8 sheets of 4×12.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-1"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >How much drywall do I need for a 2,000 sq ft house?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-1" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        A common rule of thumb is 3.5–4 sq ft of drywall per
+                        square foot of floor area once you include walls,
+                        ceilings and closets. A 2,000 sq ft home typically needs
+                        about 7,000–8,000 sq ft, or roughly 220–250 sheets of
+                        4×8.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-2"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >What thickness of drywall should I use?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-2" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        1/2 in is the standard for interior walls. Use 5/8 in
+                        (Type X) on ceilings, garages and anywhere a fire rating
+                        is required; 1/4 in panels are for curved walls or
+                        laminating over old surfaces.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-3"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >Should drywall be hung horizontally or vertically?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-3" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        Horizontally (perpendicular to the studs) is the pro
+                        standard on walls: fewer joints, seams at a comfortable
+                        working height and better bracing of the framing. Hang
+                        vertically only when the sheet length matches the wall
+                        height exactly.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-4"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >How many screws do I need per sheet of drywall?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-4" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        Plan on about 32 screws per 4×8 sheet on walls (16 in on
+                        center) and up to 48 on ceilings (12 in on center). A 1
+                        lb box of 1-1/4 in drywall screws holds roughly 250–300
+                        screws.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-5"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >How much does a sheet of drywall weigh?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-5" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        A standard 1/2 in 4×8 sheet weighs about 50–54 lb;
+                        lightweight panels run 38–40 lb; a 5/8 in 4×8 sheet is
+                        70 lb or more. A 4×12 sheet of 1/2 in can top 80 lb —
+                        plan on two people or a panel lift.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-6"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >Does this calculator include the ceiling?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-6" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        No — it covers walls only. For a ceiling, multiply room
+                        length × width and divide by the sheet coverage: a 12×12
+                        ceiling is 144 sq ft, or 5 sheets of 4×8. Use 5/8 in or
+                        sag-resistant panels on ceilings.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-7"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >How much extra drywall should I buy for waste?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-7" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        Add about 10%. Offcuts around doors, windows and outlets
+                        are rarely reusable, and one damaged sheet mid-project
+                        costs far more time than a spare sheet costs money.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-8"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >What is the difference between drywall, Sheetrock and
+                      gypsum board?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-8" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        They are the same product — drywall and gypsum board are
+                        generic names, while Sheetrock is a USG brand. Green
+                        board and purple board are moisture- and mold-resistant
+                        variants for bathrooms and basements.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!--]-->
+              </div>
+              <div
+                class="ad-wrap ad-horizontal"
+                data-v-713e29a2=""
+                data-v-5a8da889=""
+              >
+                <div
+                  class="ad-slot"
+                  role="complementary"
+                  aria-label="Advertisement placeholder"
+                  data-v-5a8da889=""
+                >
+                  <span data-v-5a8da889="">Advertisement</span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="section-sm" data-v-713e29a2="">
+            <div class="container" data-v-713e29a2="">
+              <h2 class="related-title" data-v-713e29a2="">
+                Related calculators
+              </h2>
+              <div class="related-grid" data-v-713e29a2="">
+                <!--[--><a
+                  href="/BuildCalc/paint-calculator/"
+                  class="related-card card"
+                  data-v-713e29a2=""
+                  ><span class="related-icon" data-v-713e29a2=""
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-paint-roller-icon lucide-paint-roller"
+                      aria-hidden="true"
+                      data-v-713e29a2=""
+                    >
+                      <rect width="16" height="6" x="2" y="2" rx="2"></rect>
+                      <path
+                        d="M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"
+                      ></path>
+                      <rect
+                        width="4"
+                        height="6"
+                        x="8"
+                        y="16"
+                        rx="1"
+                      ></rect></svg></span
+                  ><span class="related-name" data-v-713e29a2=""
+                    >Paint Calculator</span
+                  ><span
+                    class="related-go"
+                    aria-hidden="true"
+                    data-v-713e29a2=""
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"
+                      data-v-713e29a2=""
+                    >
+                      <path d="M7 7h10v10"></path>
+                      <path d="M7 17 17 7"></path></svg></span></a
+                ><a
+                  href="/BuildCalc/flooring-calculator/"
+                  class="related-card card"
+                  data-v-713e29a2=""
+                  ><span class="related-icon" data-v-713e29a2=""
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-layers-icon lucide-layers"
+                      aria-hidden="true"
+                      data-v-713e29a2=""
+                    >
+                      <path
+                        d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"
+                      ></path>
+                      <path
+                        d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"
+                      ></path>
+                      <path
+                        d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"
+                      ></path></svg></span
+                  ><span class="related-name" data-v-713e29a2=""
+                    >Flooring Calculator</span
+                  ><span
+                    class="related-go"
+                    aria-hidden="true"
+                    data-v-713e29a2=""
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"
+                      data-v-713e29a2=""
+                    >
+                      <path d="M7 7h10v10"></path>
+                      <path d="M7 17 17 7"></path></svg></span></a
+                ><a
+                  href="/BuildCalc/tile-calculator/"
+                  class="related-card card"
+                  data-v-713e29a2=""
+                  ><span class="related-icon" data-v-713e29a2=""
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-layout-grid-icon lucide-layout-grid"
+                      aria-hidden="true"
+                      data-v-713e29a2=""
+                    >
+                      <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+                      <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                      <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+                      <rect
+                        width="7"
+                        height="7"
+                        x="3"
+                        y="14"
+                        rx="1"
+                      ></rect></svg></span
+                  ><span class="related-name" data-v-713e29a2=""
+                    >Tile Calculator</span
+                  ><span
+                    class="related-go"
+                    aria-hidden="true"
+                    data-v-713e29a2=""
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"
+                      data-v-713e29a2=""
+                    >
+                      <path d="M7 7h10v10"></path>
+                      <path d="M7 17 17 7"></path></svg></span></a
+                ><!--]-->
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer class="site-footer" data-v-3d466523="">
+        <div class="container footer-grid" data-v-3d466523="">
+          <div class="footer-brand" data-v-3d466523="">
+            <span class="brand-name" data-v-3d466523="">BuildCalc</span>
+            <p data-v-3d466523="">
+              Free construction material calculators with transparent formulas.
+              No sign-up, no data collection — everything runs in your browser.
+            </p>
+          </div>
+          <nav class="footer-col" aria-label="Calculators" data-v-3d466523="">
+            <h4 data-v-3d466523="">Calculators</h4>
+            <!--[--><a
+              href="/BuildCalc/concrete-calculator/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Concrete Calculator</a
+            ><a
+              href="/BuildCalc/paint-calculator/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Paint Calculator</a
+            ><a
+              href="/BuildCalc/flooring-calculator/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Flooring Calculator</a
+            ><a
+              href="/BuildCalc/mulch-calculator/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Mulch Calculator</a
+            ><a
+              href="/BuildCalc/gravel-calculator/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Gravel Calculator</a
+            ><a
+              aria-current="page"
+              href="/BuildCalc/drywall-calculator/"
+              class="router-link-active router-link-exact-active footer-link"
+              data-v-3d466523=""
+              >Drywall Calculator</a
+            ><a
+              href="/BuildCalc/tile-calculator/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Tile Calculator</a
+            ><a
+              href="/BuildCalc/roofing-calculator/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Roofing Calculator</a
+            ><!--]-->
+          </nav>
+          <nav class="footer-col" aria-label="Resources" data-v-3d466523="">
+            <h4 data-v-3d466523="">Resources</h4>
+            <a href="/BuildCalc/guides/" class="footer-link" data-v-3d466523=""
+              >Guides</a
+            ><a href="/BuildCalc/about/" class="footer-link" data-v-3d466523=""
+              >About</a
+            ><a
+              href="/BuildCalc/contact/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Contact</a
+            >
+          </nav>
+          <nav class="footer-col" aria-label="Legal" data-v-3d466523="">
+            <h4 data-v-3d466523="">Legal</h4>
+            <a
+              href="/BuildCalc/privacy-policy/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Privacy Policy</a
+            ><a href="/BuildCalc/terms/" class="footer-link" data-v-3d466523=""
+              >Terms of Use</a
+            >
+          </nav>
+        </div>
+        <div class="container footer-bottom" data-v-3d466523="">
+          <p data-v-3d466523="">
+            © 2026 BuildCalc. For estimation purposes only — verify quantities
+            before purchase.
+          </p>
+        </div>
+      </footer>
+      <!--]-->
+    </div>
+  </body>
+</html>

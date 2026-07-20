@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/BuildCalc/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2E3A38" />
+    <title>Flooring Calculator — Free, Instant Results | BuildCalc</title>
+    <meta
+      name="description"
+      content="Measure your room to get the flooring square footage you need — including a waste allowance for cuts — plus how many boxes to buy based on the coverage printed on the carton."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      async=""
+      crossorigin=""
+      src="/BuildCalc/assets/app-Dd-7Z5u3.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      crossorigin=""
+      href="/BuildCalc/assets/app-DgtQhOia.css"
+    />
+    <meta
+      property="og:title"
+      content="Flooring Calculator — Free, Instant Results | BuildCalc"
+    />
+    <meta
+      property="og:description"
+      content="Measure your room to get the flooring square footage you need — including a waste allowance for cuts — plus how many boxes to buy based on the coverage printed on the carton."
+    />
+    <meta
+      property="og:url"
+      content="https://max179.github.io/BuildCalc/flooring-calculator/"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BuildCalc" />
+    <meta
+      property="og:image"
+      content="https://max179.github.io/BuildCalc/images/og-image.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://max179.github.io/BuildCalc/images/og-image.jpg"
+    />
+    <link
+      rel="canonical"
+      href="https://max179.github.io/BuildCalc/flooring-calculator/"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Flooring Calculator",
+        "url": "https://max179.github.io/BuildCalc/flooring-calculator/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Measure your room to get the flooring square footage you need — including a waste allowance for cuts — plus how many boxes to buy based on the coverage printed on the carton."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much extra flooring should I buy for waste?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The standard rule is 10% extra. Use 5% for a plain rectangular room with a straight lay, and 15% for diagonal or herringbone patterns, or rooms with many corners, closets and doorways where off-cuts cannot be reused."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many boxes of laminate do I need for a 12×12 room?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A 12×12 ft room is 144 sq ft. Add 10% waste to get 158.4 sq ft, then divide by the box coverage: at 20 sq ft per box that is 7.92, so buy 8 boxes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I measure an L-shaped room?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Split the room into two rectangles that do not overlap. Multiply length × width for each, add the two areas together, then apply your waste percentage once to the combined total."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I subtract closets and cabinets?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Include closets — they get flooring too. In kitchens, base cabinets sit on the subfloor and do not get flooring, so you can subtract their footprint: a standard base cabinet run is 24 inches deep times its length."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is \"box coverage\" the same as square feet per box?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Every carton is printed with something like \"covers 20.04 sq ft\" — that is the number to enter here. It already accounts for the plank size and count inside that specific box."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I buy an extra box for future repairs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Dye lots vary between production runs and product lines get discontinued, so an exact match years later is unlikely. One sealed spare box stored flat in a dry place covers most future plank replacements."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I convert square feet to square yards?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Divide by 9 — one square yard is exactly 9 square feet. This matters because carpet is usually priced per square yard: a 150 sq ft room is about 16.7 square yards."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need underlayment, and how much?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most laminate and many vinyl plank floors require underlayment (some LVP has it pre-attached — check the box). Buy underlayment equal to the room area plus about 5%; it comes off a roll, so it needs less cutting waste than planks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between laminate and vinyl plank?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Laminate has a wood-fiber core with a photographic wear layer — stiff, scratch-resistant, but not waterproof. LVP is made of waterproof vinyl, so it handles kitchens, baths and basements. Both click together and both are typically sold in boxes covering around 20 sq ft."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I install new flooring over old flooring?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Floating floors (laminate, LVP) can go over one layer of flat, sound existing flooring like vinyl sheet or tile — never over carpet or cushioned vinyl. Check the manufacturer height limits for doors and appliances before you commit."
+            }
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://max179.github.io/BuildCalc/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Flooring Calculator",
+            "item": "https://max179.github.io/BuildCalc/flooring-calculator/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true">
+      <!--[-->
+      <header class="site-header" data-v-a333d272="">
+        <div class="container header-inner" data-v-a333d272="">
+          <a
+            href="/BuildCalc/"
+            class="brand"
+            aria-label="BuildCalc home"
+            data-v-a333d272=""
+            ><span class="brand-mark" data-v-a333d272=""
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-hammer-icon lucide-hammer"
+                data-v-a333d272=""
+              >
+                <path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"></path>
+                <path d="m18 15 4-4"></path>
+                <path
+                  d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"
+                ></path></svg></span
+            ><span class="brand-name" data-v-a333d272="">BuildCalc</span></a
+          >
+          <nav class="nav-desktop" aria-label="Primary" data-v-a333d272="">
+            <div class="nav-item" data-v-a333d272="">
+              <a
+                href="/BuildCalc/#calculators"
+                class="nav-link nav-dropdown-toggle"
+                data-v-a333d272=""
+              >
+                Calculators
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-chevron-down-icon lucide-chevron-down"
+                  data-v-a333d272=""
+                >
+                  <path d="m6 9 6 6 6-6"></path></svg
+              ></a>
+              <div class="dropdown" data-v-a333d272="">
+                <!--[--><a
+                  href="/BuildCalc/concrete-calculator/"
+                  class="dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-blocks-icon lucide-blocks"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                    <path
+                      d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"
+                    ></path></svg
+                  ><span data-v-a333d272="">Concrete Calculator</span></a
+                ><a
+                  href="/BuildCalc/paint-calculator/"
+                  class="dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-paint-roller-icon lucide-paint-roller"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <rect width="16" height="6" x="2" y="2" rx="2"></rect>
+                    <path
+                      d="M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"
+                    ></path>
+                    <rect width="4" height="6" x="8" y="16" rx="1"></rect></svg
+                  ><span data-v-a333d272="">Paint Calculator</span></a
+                ><a
+                  aria-current="page"
+                  href="/BuildCalc/flooring-calculator/"
+                  class="router-link-active router-link-exact-active dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-layers-icon lucide-layers"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <path
+                      d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"
+                    ></path>
+                    <path
+                      d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"
+                    ></path>
+                    <path
+                      d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"
+                    ></path></svg
+                  ><span data-v-a333d272="">Flooring Calculator</span></a
+                ><a
+                  href="/BuildCalc/mulch-calculator/"
+                  class="dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-sprout-icon lucide-sprout"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <path d="M7 20h10"></path>
+                    <path d="M10 20c5.5-2.5.8-6.4 3-10"></path>
+                    <path
+                      d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"
+                    ></path>
+                    <path
+                      d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"
+                    ></path></svg
+                  ><span data-v-a333d272="">Mulch Calculator</span></a
+                ><a
+                  href="/BuildCalc/gravel-calculator/"
+                  class="dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-mountain-icon lucide-mountain"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path></svg
+                  ><span data-v-a333d272="">Gravel Calculator</span></a
+                ><a
+                  href="/BuildCalc/drywall-calculator/"
+                  class="dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-square-icon lucide-square"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <rect width="18" height="18" x="3" y="3" rx="2"></rect></svg
+                  ><span data-v-a333d272="">Drywall Calculator</span></a
+                ><a
+                  href="/BuildCalc/tile-calculator/"
+                  class="dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-layout-grid-icon lucide-layout-grid"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+                    <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                    <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+                    <rect width="7" height="7" x="3" y="14" rx="1"></rect></svg
+                  ><span data-v-a333d272="">Tile Calculator</span></a
+                ><a
+                  href="/BuildCalc/roofing-calculator/"
+                  class="dropdown-link"
+                  data-v-a333d272=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-house-icon lucide-house"
+                    aria-hidden="true"
+                    data-v-a333d272=""
+                  >
+                    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                    <path
+                      d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                    ></path></svg
+                  ><span data-v-a333d272="">Roofing Calculator</span></a
+                ><!--]-->
+              </div>
+            </div>
+            <a href="/BuildCalc/guides/" class="nav-link" data-v-a333d272=""
+              >Guides</a
+            ><a href="/BuildCalc/about/" class="nav-link" data-v-a333d272=""
+              >About</a
+            >
+          </nav>
+          <button
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            data-v-a333d272=""
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-menu-icon lucide-menu"
+              data-v-a333d272=""
+            >
+              <path d="M4 12h16"></path>
+              <path d="M4 18h16"></path>
+              <path d="M4 6h16"></path>
+            </svg>
+          </button>
+        </div>
+        <nav
+          class="nav-mobile"
+          aria-label="Mobile"
+          style="display: none"
+          data-v-a333d272=""
+        >
+          <a
+            href="/BuildCalc/#calculators"
+            class="nav-mobile-link"
+            data-v-a333d272=""
+            >Calculators</a
+          ><a
+            href="/BuildCalc/guides/"
+            class="nav-mobile-link"
+            data-v-a333d272=""
+            >Guides</a
+          ><a
+            href="/BuildCalc/about/"
+            class="nav-mobile-link"
+            data-v-a333d272=""
+            >About</a
+          ><a
+            href="/BuildCalc/contact/"
+            class="nav-mobile-link"
+            data-v-a333d272=""
+            >Contact</a
+          >
+        </nav>
+      </header>
+      <main>
+        <div data-v-713e29a2="">
+          <section class="calc-head" data-v-713e29a2="">
+            <div class="container" data-v-713e29a2="">
+              <nav
+                class="breadcrumb"
+                aria-label="Breadcrumb"
+                data-v-713e29a2=""
+              >
+                <a href="/BuildCalc/" class="" data-v-713e29a2="">Home</a
+                ><span aria-hidden="true" data-v-713e29a2="">/</span
+                ><span data-v-713e29a2="">Flooring Calculator</span>
+              </nav>
+              <div class="calc-title-row" data-v-713e29a2="">
+                <span class="calc-title-icon" data-v-713e29a2=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-layers-icon lucide-layers"
+                    aria-hidden="true"
+                    data-v-713e29a2=""
+                  >
+                    <path
+                      d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"
+                    ></path>
+                    <path
+                      d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"
+                    ></path>
+                    <path
+                      d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"
+                    ></path></svg
+                ></span>
+                <h1 data-v-713e29a2="">Flooring Calculator</h1>
+                <img
+                  class="calc-photo"
+                  src="/BuildCalc/images/tool-flooring.jpg"
+                  alt="Flooring Calculator — project photo"
+                  data-v-713e29a2=""
+                />
+              </div>
+              <p class="calc-intro" data-v-713e29a2="">
+                Measure your room to get the flooring square footage you need —
+                including a waste allowance for cuts — plus how many boxes to
+                buy based on the coverage printed on the carton.
+              </p>
+            </div>
+          </section>
+          <section class="calc-section" data-v-713e29a2="">
+            <div class="container" data-v-713e29a2="">
+              <nav
+                class="switcher calc-switcher"
+                aria-label="Switch calculator"
+                data-v-713e29a2=""
+                data-v-00f89021=""
+              >
+                <!--[--><a
+                  href="/BuildCalc/concrete-calculator/"
+                  class="switcher-item"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-blocks-icon lucide-blocks"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                    <path
+                      d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"
+                    ></path></svg
+                  ><span data-v-00f89021="">Concrete</span></a
+                ><a
+                  href="/BuildCalc/paint-calculator/"
+                  class="switcher-item"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-paint-roller-icon lucide-paint-roller"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <rect width="16" height="6" x="2" y="2" rx="2"></rect>
+                    <path
+                      d="M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"
+                    ></path>
+                    <rect width="4" height="6" x="8" y="16" rx="1"></rect></svg
+                  ><span data-v-00f89021="">Paint</span></a
+                ><a
+                  aria-current="page"
+                  href="/BuildCalc/flooring-calculator/"
+                  class="router-link-active router-link-exact-active switcher-item active"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-layers-icon lucide-layers"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <path
+                      d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"
+                    ></path>
+                    <path
+                      d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"
+                    ></path>
+                    <path
+                      d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"
+                    ></path></svg
+                  ><span data-v-00f89021="">Flooring</span></a
+                ><a
+                  href="/BuildCalc/mulch-calculator/"
+                  class="switcher-item"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-sprout-icon lucide-sprout"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <path d="M7 20h10"></path>
+                    <path d="M10 20c5.5-2.5.8-6.4 3-10"></path>
+                    <path
+                      d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"
+                    ></path>
+                    <path
+                      d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"
+                    ></path></svg
+                  ><span data-v-00f89021="">Mulch</span></a
+                ><a
+                  href="/BuildCalc/gravel-calculator/"
+                  class="switcher-item"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-mountain-icon lucide-mountain"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path></svg
+                  ><span data-v-00f89021="">Gravel</span></a
+                ><a
+                  href="/BuildCalc/drywall-calculator/"
+                  class="switcher-item"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-square-icon lucide-square"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <rect width="18" height="18" x="3" y="3" rx="2"></rect></svg
+                  ><span data-v-00f89021="">Drywall</span></a
+                ><a
+                  href="/BuildCalc/tile-calculator/"
+                  class="switcher-item"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-layout-grid-icon lucide-layout-grid"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+                    <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                    <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+                    <rect width="7" height="7" x="3" y="14" rx="1"></rect></svg
+                  ><span data-v-00f89021="">Tile</span></a
+                ><a
+                  href="/BuildCalc/roofing-calculator/"
+                  class="switcher-item"
+                  data-v-00f89021=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-house-icon lucide-house"
+                    aria-hidden="true"
+                    data-v-00f89021=""
+                  >
+                    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                    <path
+                      d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                    ></path></svg
+                  ><span data-v-00f89021="">Roofing</span></a
+                ><!--]-->
+              </nav>
+              <div class="card calc-card" data-v-713e29a2="">
+                <div class="calc-grid" data-v-713e29a2="">
+                  <form class="calc-form">
+                    <fieldset class="calc-fieldset">
+                      <legend class="calc-legend">Room length</legend>
+                      <div class="input-pair">
+                        <div class="input-suffix">
+                          <input
+                            value="12"
+                            class="input"
+                            type="number"
+                            min="0"
+                            inputmode="decimal"
+                            aria-label="Room length in feet"
+                          /><span class="suffix">ft</span>
+                        </div>
+                        <div class="input-suffix">
+                          <input
+                            value="6"
+                            class="input"
+                            type="number"
+                            min="0"
+                            inputmode="decimal"
+                            aria-label="Room length in inches"
+                          /><span class="suffix">in</span>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <fieldset class="calc-fieldset">
+                      <legend class="calc-legend">Room width</legend>
+                      <div class="input-pair">
+                        <div class="input-suffix">
+                          <input
+                            value="10"
+                            class="input"
+                            type="number"
+                            min="0"
+                            inputmode="decimal"
+                            aria-label="Room width in feet"
+                          /><span class="suffix">ft</span>
+                        </div>
+                        <div class="input-suffix">
+                          <input
+                            value="0"
+                            class="input"
+                            type="number"
+                            min="0"
+                            inputmode="decimal"
+                            aria-label="Room width in inches"
+                          /><span class="suffix">in</span>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <div class="field">
+                      <label class="label" for="waste">Waste allowance</label
+                      ><select id="waste" class="select">
+                        <option value="5">5% — simple square room</option>
+                        <option value="10" selected="">
+                          10% — recommended
+                        </option>
+                        <option value="15">
+                          15% — diagonal / herringbone layout
+                        </option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label class="label" for="box">Box coverage</label>
+                      <div class="input-suffix">
+                        <input
+                          id="box"
+                          value="20"
+                          class="input"
+                          type="number"
+                          min="0"
+                          inputmode="decimal"
+                        /><span class="suffix">sq ft / box</span>
+                      </div>
+                      <span class="field-hint"
+                        >Printed on the carton — often 18–24 sq ft</span
+                      >
+                    </div>
+                  </form>
+                  <div class="calc-results">
+                    <!--[-->
+                    <div class="stat primary" data-v-7666ccc3="">
+                      <span class="stat-label" data-v-7666ccc3=""
+                        >Flooring needed</span
+                      ><span class="stat-value mono" data-v-7666ccc3=""
+                        >137.5<small class="stat-unit" data-v-7666ccc3=""
+                          >sq ft</small
+                        ></span
+                      ><span class="stat-note" data-v-7666ccc3=""
+                        >includes 10% waste</span
+                      >
+                    </div>
+                    <div class="calc-results-grid">
+                      <div class="stat" data-v-7666ccc3="">
+                        <span class="stat-label" data-v-7666ccc3=""
+                          >Room area</span
+                        ><span class="stat-value mono" data-v-7666ccc3=""
+                          >125<small class="stat-unit" data-v-7666ccc3=""
+                            >sq ft</small
+                          ></span
+                        ><span class="stat-note" data-v-7666ccc3=""
+                          >before waste</span
+                        >
+                      </div>
+                      <div class="stat" data-v-7666ccc3="">
+                        <span class="stat-label" data-v-7666ccc3=""
+                          >Boxes needed</span
+                        ><span class="stat-value mono" data-v-7666ccc3=""
+                          >7<!----></span
+                        ><span class="stat-note" data-v-7666ccc3=""
+                          >20 sq ft per box</span
+                        >
+                      </div>
+                      <div class="stat" data-v-7666ccc3="">
+                        <span class="stat-label" data-v-7666ccc3=""
+                          >Waste included</span
+                        ><span class="stat-value mono" data-v-7666ccc3=""
+                          >10%<!----></span
+                        ><span class="stat-note" data-v-7666ccc3=""
+                          >for cuts &amp; mistakes</span
+                        >
+                      </div>
+                    </div>
+                    <!--]-->
+                  </div>
+                </div>
+              </div>
+              <aside
+                class="buy-box"
+                aria-label="Where to buy"
+                data-v-713e29a2=""
+                data-v-c49e9d0f=""
+              >
+                <div class="buy-head" data-v-c49e9d0f="">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+                    data-v-c49e9d0f=""
+                  >
+                    <circle cx="8" cy="21" r="1"></circle>
+                    <circle cx="19" cy="21" r="1"></circle>
+                    <path
+                      d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+                    ></path>
+                  </svg>
+                  <h3 data-v-c49e9d0f="">Buy materials for this project</h3>
+                </div>
+                <ul class="buy-list" data-v-c49e9d0f="">
+                  <!--[-->
+                  <li data-v-c49e9d0f="">
+                    <a
+                      href="https://www.amazon.com/s?k=luxury+vinyl+plank+flooring"
+                      target="_blank"
+                      rel="sponsored nofollow noopener"
+                      class="buy-link"
+                      data-v-c49e9d0f=""
+                      ><span class="buy-label" data-v-c49e9d0f=""
+                        >Luxury Vinyl Plank Flooring</span
+                      ><span class="buy-note" data-v-c49e9d0f=""
+                        >Boxes cover ≈ 18–30 sq ft</span
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right buy-arrow"
+                        data-v-c49e9d0f=""
+                      >
+                        <path d="M7 7h10v10"></path>
+                        <path d="M7 17 17 7"></path></svg
+                    ></a>
+                  </li>
+                  <li data-v-c49e9d0f="">
+                    <a
+                      href="https://www.amazon.com/s?k=flooring+underlayment"
+                      target="_blank"
+                      rel="sponsored nofollow noopener"
+                      class="buy-link"
+                      data-v-c49e9d0f=""
+                      ><span class="buy-label" data-v-c49e9d0f=""
+                        >Flooring Underlayment</span
+                      ><span class="buy-note" data-v-c49e9d0f=""
+                        >For laminate &amp; floating floors</span
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right buy-arrow"
+                        data-v-c49e9d0f=""
+                      >
+                        <path d="M7 7h10v10"></path>
+                        <path d="M7 17 17 7"></path></svg
+                    ></a>
+                  </li>
+                  <li data-v-c49e9d0f="">
+                    <a
+                      href="https://www.amazon.com/s?k=flooring+installation+kit"
+                      target="_blank"
+                      rel="sponsored nofollow noopener"
+                      class="buy-link"
+                      data-v-c49e9d0f=""
+                      ><span class="buy-label" data-v-c49e9d0f=""
+                        >Flooring Installation Kit</span
+                      ><span class="buy-note" data-v-c49e9d0f=""
+                        >Spacers, tapping block &amp; pull bar</span
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right buy-arrow"
+                        data-v-c49e9d0f=""
+                      >
+                        <path d="M7 7h10v10"></path>
+                        <path d="M7 17 17 7"></path></svg
+                    ></a>
+                  </li>
+                  <!--]-->
+                </ul>
+                <p class="buy-disclosure" data-v-c49e9d0f="">
+                  Prices are estimates and may vary by store. As an affiliate,
+                  we may earn a commission on qualifying purchases at no extra
+                  cost to you.
+                </p>
+              </aside>
+              <div
+                class="ad-wrap ad-horizontal"
+                data-v-713e29a2=""
+                data-v-5a8da889=""
+              >
+                <div
+                  class="ad-slot"
+                  role="complementary"
+                  aria-label="Advertisement placeholder"
+                  data-v-5a8da889=""
+                >
+                  <span data-v-5a8da889="">Advertisement</span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="section-sm" data-v-713e29a2="">
+            <div class="container prose-wrap" data-v-713e29a2="">
+              <h2 data-v-713e29a2="">
+                How to calculate how much flooring you need
+              </h2>
+              <ol class="howto-list" data-v-713e29a2="">
+                <!--[-->
+                <li data-v-713e29a2="">
+                  Measure the length and width of the room in feet and inches,
+                  then multiply them to get the square footage. For an L-shaped
+                  room, split it into two rectangles, calculate each area
+                  separately and add them together.
+                </li>
+                <li data-v-713e29a2="">
+                  Add a waste allowance for cuts, mistakes and future repairs:
+                  5% for a simple square room, 10% for a typical room, and 15%
+                  for diagonal or herringbone layouts and rooms with lots of
+                  angles, closets or doorways.
+                </li>
+                <li data-v-713e29a2="">
+                  Divide the total square footage (including waste) by the
+                  coverage printed on the box — laminate and luxury vinyl plank
+                  commonly cover 18–24 sq ft per box — and round up, because
+                  stores only sell full boxes. Keep one spare box for future
+                  repairs.
+                </li>
+                <!--]-->
+              </ol>
+              <div class="formula-box" data-v-713e29a2="">
+                <span class="formula-label" data-v-713e29a2="">Formula</span
+                ><code class="mono" data-v-713e29a2=""
+                  >Boxes = Length (ft) × Width (ft) × (1 + waste %) ÷ box
+                  coverage (sq ft), rounded up.</code
+                >
+              </div>
+            </div>
+          </section>
+          <section class="section-sm" data-v-713e29a2="">
+            <div class="container prose-wrap" data-v-713e29a2="">
+              <h2 data-v-713e29a2="">
+                Typical coverage per box by flooring type
+              </h2>
+              <table class="data-table" data-v-713e29a2="">
+                <thead data-v-713e29a2="">
+                  <tr data-v-713e29a2="">
+                    <!--[-->
+                    <th data-v-713e29a2="">Flooring type</th>
+                    <th data-v-713e29a2="">Typical sq ft per box</th>
+                    <th data-v-713e29a2="">Typical plank / tile size</th>
+                    <!--]-->
+                  </tr>
+                </thead>
+                <tbody data-v-713e29a2="">
+                  <!--[-->
+                  <tr data-v-713e29a2="">
+                    <!--[-->
+                    <td class="" data-v-713e29a2="">Laminate</td>
+                    <td class="num" data-v-713e29a2="">18–22 sq ft</td>
+                    <td class="num" data-v-713e29a2="">7.5" × 48" planks</td>
+                    <!--]-->
+                  </tr>
+                  <tr data-v-713e29a2="">
+                    <!--[-->
+                    <td class="" data-v-713e29a2="">
+                      Luxury vinyl plank (LVP)
+                    </td>
+                    <td class="num" data-v-713e29a2="">20–24 sq ft</td>
+                    <td class="num" data-v-713e29a2="">6"–9" × 48" planks</td>
+                    <!--]-->
+                  </tr>
+                  <tr data-v-713e29a2="">
+                    <!--[-->
+                    <td class="" data-v-713e29a2="">Engineered hardwood</td>
+                    <td class="num" data-v-713e29a2="">20–25 sq ft</td>
+                    <td class="num" data-v-713e29a2="">5"–7" wide planks</td>
+                    <!--]-->
+                  </tr>
+                  <tr data-v-713e29a2="">
+                    <!--[-->
+                    <td class="" data-v-713e29a2="">Solid hardwood strip</td>
+                    <td class="num" data-v-713e29a2="">18–20 sq ft</td>
+                    <td class="num" data-v-713e29a2="">2.25" wide strips</td>
+                    <!--]-->
+                  </tr>
+                  <tr data-v-713e29a2="">
+                    <!--[-->
+                    <td class="" data-v-713e29a2="">
+                      Ceramic / porcelain tile
+                    </td>
+                    <td class="num" data-v-713e29a2="">10–15 sq ft</td>
+                    <td class="num" data-v-713e29a2="">12"×12" to 12"×24"</td>
+                    <!--]-->
+                  </tr>
+                  <tr data-v-713e29a2="">
+                    <!--[-->
+                    <td class="" data-v-713e29a2="">
+                      Peel-and-stick vinyl tile
+                    </td>
+                    <td class="num" data-v-713e29a2="">20–45 sq ft</td>
+                    <td class="num" data-v-713e29a2="">
+                      12"×12" tiles, 20–45 per box
+                    </td>
+                    <!--]-->
+                  </tr>
+                  <!--]-->
+                </tbody>
+              </table>
+              <p class="table-note muted" data-v-713e29a2="">
+                Always confirm the exact coverage on the carton — it varies by
+                brand and product line.
+              </p>
+            </div>
+          </section>
+          <section class="section-sm" data-v-713e29a2="">
+            <div class="container prose-wrap" data-v-713e29a2="">
+              <h2 data-v-713e29a2="">Frequently asked questions</h2>
+              <div class="faq" data-v-713e29a2="" data-v-caaee4c8="">
+                <!--[-->
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="true"
+                    aria-controls="faq-panel-0"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >How much extra flooring should I buy for waste?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron open"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-0" class="open faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        The standard rule is 10% extra. Use 5% for a plain
+                        rectangular room with a straight lay, and 15% for
+                        diagonal or herringbone patterns, or rooms with many
+                        corners, closets and doorways where off-cuts cannot be
+                        reused.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-1"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >How many boxes of laminate do I need for a 12×12
+                      room?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-1" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        A 12×12 ft room is 144 sq ft. Add 10% waste to get 158.4
+                        sq ft, then divide by the box coverage: at 20 sq ft per
+                        box that is 7.92, so buy 8 boxes.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-2"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >How do I measure an L-shaped room?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-2" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        Split the room into two rectangles that do not overlap.
+                        Multiply length × width for each, add the two areas
+                        together, then apply your waste percentage once to the
+                        combined total.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-3"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >Should I subtract closets and cabinets?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-3" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        Include closets — they get flooring too. In kitchens,
+                        base cabinets sit on the subfloor and do not get
+                        flooring, so you can subtract their footprint: a
+                        standard base cabinet run is 24 inches deep times its
+                        length.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-4"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >Is "box coverage" the same as square feet per box?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-4" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        Yes. Every carton is printed with something like "covers
+                        20.04 sq ft" — that is the number to enter here. It
+                        already accounts for the plank size and count inside
+                        that specific box.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-5"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >Should I buy an extra box for future repairs?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-5" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        Yes. Dye lots vary between production runs and product
+                        lines get discontinued, so an exact match years later is
+                        unlikely. One sealed spare box stored flat in a dry
+                        place covers most future plank replacements.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-6"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >How do I convert square feet to square yards?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-6" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        Divide by 9 — one square yard is exactly 9 square feet.
+                        This matters because carpet is usually priced per square
+                        yard: a 150 sq ft room is about 16.7 square yards.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-7"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >Do I need underlayment, and how much?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-7" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        Most laminate and many vinyl plank floors require
+                        underlayment (some LVP has it pre-attached — check the
+                        box). Buy underlayment equal to the room area plus about
+                        5%; it comes off a roll, so it needs less cutting waste
+                        than planks.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-8"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >What is the difference between laminate and vinyl
+                      plank?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-8" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        Laminate has a wood-fiber core with a photographic wear
+                        layer — stiff, scratch-resistant, but not waterproof.
+                        LVP is made of waterproof vinyl, so it handles kitchens,
+                        baths and basements. Both click together and both are
+                        typically sold in boxes covering around 20 sq ft.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item" data-v-caaee4c8="">
+                  <button
+                    class="faq-q"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-9"
+                    data-v-caaee4c8=""
+                  >
+                    <span data-v-caaee4c8=""
+                      >Can I install new flooring over old flooring?</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down-icon lucide-chevron-down faq-chevron"
+                      data-v-caaee4c8=""
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div id="faq-panel-9" class="faq-a" data-v-caaee4c8="">
+                    <div class="faq-a-inner" data-v-caaee4c8="">
+                      <p data-v-caaee4c8="">
+                        Floating floors (laminate, LVP) can go over one layer of
+                        flat, sound existing flooring like vinyl sheet or tile —
+                        never over carpet or cushioned vinyl. Check the
+                        manufacturer height limits for doors and appliances
+                        before you commit.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!--]-->
+              </div>
+              <div
+                class="ad-wrap ad-horizontal"
+                data-v-713e29a2=""
+                data-v-5a8da889=""
+              >
+                <div
+                  class="ad-slot"
+                  role="complementary"
+                  aria-label="Advertisement placeholder"
+                  data-v-5a8da889=""
+                >
+                  <span data-v-5a8da889="">Advertisement</span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="section-sm" data-v-713e29a2="">
+            <div class="container" data-v-713e29a2="">
+              <h2 class="related-title" data-v-713e29a2="">
+                Related calculators
+              </h2>
+              <div class="related-grid" data-v-713e29a2="">
+                <!--[--><a
+                  href="/BuildCalc/tile-calculator/"
+                  class="related-card card"
+                  data-v-713e29a2=""
+                  ><span class="related-icon" data-v-713e29a2=""
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-layout-grid-icon lucide-layout-grid"
+                      aria-hidden="true"
+                      data-v-713e29a2=""
+                    >
+                      <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+                      <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                      <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+                      <rect
+                        width="7"
+                        height="7"
+                        x="3"
+                        y="14"
+                        rx="1"
+                      ></rect></svg></span
+                  ><span class="related-name" data-v-713e29a2=""
+                    >Tile Calculator</span
+                  ><span
+                    class="related-go"
+                    aria-hidden="true"
+                    data-v-713e29a2=""
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"
+                      data-v-713e29a2=""
+                    >
+                      <path d="M7 7h10v10"></path>
+                      <path d="M7 17 17 7"></path></svg></span></a
+                ><a
+                  href="/BuildCalc/paint-calculator/"
+                  class="related-card card"
+                  data-v-713e29a2=""
+                  ><span class="related-icon" data-v-713e29a2=""
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-paint-roller-icon lucide-paint-roller"
+                      aria-hidden="true"
+                      data-v-713e29a2=""
+                    >
+                      <rect width="16" height="6" x="2" y="2" rx="2"></rect>
+                      <path
+                        d="M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"
+                      ></path>
+                      <rect
+                        width="4"
+                        height="6"
+                        x="8"
+                        y="16"
+                        rx="1"
+                      ></rect></svg></span
+                  ><span class="related-name" data-v-713e29a2=""
+                    >Paint Calculator</span
+                  ><span
+                    class="related-go"
+                    aria-hidden="true"
+                    data-v-713e29a2=""
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"
+                      data-v-713e29a2=""
+                    >
+                      <path d="M7 7h10v10"></path>
+                      <path d="M7 17 17 7"></path></svg></span></a
+                ><a
+                  href="/BuildCalc/drywall-calculator/"
+                  class="related-card card"
+                  data-v-713e29a2=""
+                  ><span class="related-icon" data-v-713e29a2=""
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-square-icon lucide-square"
+                      aria-hidden="true"
+                      data-v-713e29a2=""
+                    >
+                      <rect
+                        width="18"
+                        height="18"
+                        x="3"
+                        y="3"
+                        rx="2"
+                      ></rect></svg></span
+                  ><span class="related-name" data-v-713e29a2=""
+                    >Drywall Calculator</span
+                  ><span
+                    class="related-go"
+                    aria-hidden="true"
+                    data-v-713e29a2=""
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"
+                      data-v-713e29a2=""
+                    >
+                      <path d="M7 7h10v10"></path>
+                      <path d="M7 17 17 7"></path></svg></span></a
+                ><!--]-->
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer class="site-footer" data-v-3d466523="">
+        <div class="container footer-grid" data-v-3d466523="">
+          <div class="footer-brand" data-v-3d466523="">
+            <span class="brand-name" data-v-3d466523="">BuildCalc</span>
+            <p data-v-3d466523="">
+              Free construction material calculators with transparent formulas.
+              No sign-up, no data collection — everything runs in your browser.
+            </p>
+          </div>
+          <nav class="footer-col" aria-label="Calculators" data-v-3d466523="">
+            <h4 data-v-3d466523="">Calculators</h4>
+            <!--[--><a
+              href="/BuildCalc/concrete-calculator/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Concrete Calculator</a
+            ><a
+              href="/BuildCalc/paint-calculator/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Paint Calculator</a
+            ><a
+              aria-current="page"
+              href="/BuildCalc/flooring-calculator/"
+              class="router-link-active router-link-exact-active footer-link"
+              data-v-3d466523=""
+              >Flooring Calculator</a
+            ><a
+              href="/BuildCalc/mulch-calculator/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Mulch Calculator</a
+            ><a
+              href="/BuildCalc/gravel-calculator/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Gravel Calculator</a
+            ><a
+              href="/BuildCalc/drywall-calculator/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Drywall Calculator</a
+            ><a
+              href="/BuildCalc/tile-calculator/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Tile Calculator</a
+            ><a
+              href="/BuildCalc/roofing-calculator/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Roofing Calculator</a
+            ><!--]-->
+          </nav>
+          <nav class="footer-col" aria-label="Resources" data-v-3d466523="">
+            <h4 data-v-3d466523="">Resources</h4>
+            <a href="/BuildCalc/guides/" class="footer-link" data-v-3d466523=""
+              >Guides</a
+            ><a href="/BuildCalc/about/" class="footer-link" data-v-3d466523=""
+              >About</a
+            ><a
+              href="/BuildCalc/contact/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Contact</a
+            >
+          </nav>
+          <nav class="footer-col" aria-label="Legal" data-v-3d466523="">
+            <h4 data-v-3d466523="">Legal</h4>
+            <a
+              href="/BuildCalc/privacy-policy/"
+              class="footer-link"
+              data-v-3d466523=""
+              >Privacy Policy</a
+            ><a href="/BuildCalc/terms/" class="footer-link" data-v-3d466523=""
+              >Terms of Use</a
+            >
+          </nav>
+        </div>
+        <div class="container footer-bottom" data-v-3d466523="">
+          <p data-v-3d466523="">
+            © 2026 BuildCalc. For estimation purposes only — verify quantities
+            before purchase.
+          </p>
+        </div>
+      </footer>
+      <!--]-->
+    </div>
+  </body>
+</html>
