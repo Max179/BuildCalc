@@ -2,6 +2,38 @@
 
 > 实时记录所有变更，确保任何开发者可无缝接手。最新记录在最上方。
 
+## 2026-07-19 — 实景图片 + 玻璃拟态 + GitHub Pages 上线（v0.4.0）
+
+### 视觉升级
+- 11 张 CC 授权实景图（Openverse 聚合 Wikimedia/Flickr，全部商用许可）：`public/images/`，hero 1600px / 工具图 1200px / og-image 1200×630，每张 <400KB
+- 署名合规：About 页 "Photo Credits" 章节 + `public/images/credits.json` 机器可读记录
+- Hero：施工实景大图 + slate 渐变遮罩 + 玻璃信任徽章（backdrop-filter blur）
+- 工具卡片：顶部实景图条带（hover 缩放 + 渐变融入卡片）+ 玻璃箭头按钮
+- 指南条目 84px 缩略图；计算器页标题行 210px 实景配图（移动端隐藏）
+- 玻璃拟态：吸顶 Header / 下拉菜单 / 计算器切换条全部 backdrop-filter 模糊
+
+### SEO
+- useSEO 增加 og:image（1200×630）+ twitter:card=summary_large_image，全站页面生效
+- 首页 title 改为关键词型："BuildCalc — Free Construction Calculators: Concrete, Paint, Flooring & More"
+- 所有图片含描述性 alt；hero 图 fetchpriority=high，其余 lazy
+
+### GitHub Pages 部署
+- **线上地址：https://max179.github.io/BuildCalc/**
+- vite base `/BuildCalc/`；新增 `src/utils/asset.ts` 处理 public 资源 base 前缀
+- 部署方式：**gh-pages 分支**（`npm run deploy` 一键：构建 → dist 内 init 临时仓库 → force push 到 gh-pages）
+- 注意：仓库 Pages 设置的 Source 下拉没有 "GitHub Actions" 选项（新仓库限制），故未用 Actions 自动部署；每次改完需手动 `npm run deploy`
+- canonical/OG/sitemap/robots 全部指向 https://max179.github.io/BuildCalc
+
+### 验证
+38 测试全绿、tsc 0 错误、构建 42 页；线上浏览器核查：首页/计算器实时计算/sitemap/27 篇指南全部通过，控制台零报错
+
+### 待办
+- 绑定自定义域名后可把 Pages Source 切换回尝试 Actions 自动部署
+- Search Console 提交 sitemap（需用户 Google 账号）
+- AdSense 申请、Amazon Associates tag 配置（VITE_AMAZON_TAG）
+
+---
+
 ## 2026-07-19 — 盈利优化：24 篇场景指南 + 联盟购买模块（v0.3.0）
 
 ### 背景
