@@ -3,7 +3,7 @@ import { readdirSync, statSync, writeFileSync, copyFileSync, existsSync } from '
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const SITE_URL = 'https://buildcalc.pages.dev'
+const SITE_URL = 'https://buildcalc-tools.pages.dev'
 const dist = join(dirname(fileURLToPath(import.meta.url)), '..', 'dist')
 
 /** 递归收集 dist 中含 index.html 的目录 → URL 路径 */

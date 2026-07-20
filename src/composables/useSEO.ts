@@ -2,7 +2,7 @@ import { computed, toValue, type MaybeRefOrGetter } from 'vue'
 import { useHead } from '@unhead/vue'
 
 export const SITE_NAME = 'BuildCalc'
-export const SITE_URL = 'https://buildcalc.pages.dev'
+export const SITE_URL = 'https://buildcalc-tools.pages.dev'
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og-image.jpg`
 
 export interface SeoOptions {

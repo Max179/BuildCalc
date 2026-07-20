@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://buildcalc.pages.dev/sitemap.xml
+Sitemap: https://buildcalc-tools.pages.dev/sitemap.xml

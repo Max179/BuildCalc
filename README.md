@@ -1,6 +1,6 @@
 # BuildCalc
 
-Free construction material calculators built with Vue 3, TypeScript, Vite SSG, and static GitHub Pages deployment.
+Free construction material calculators built with Vue 3, TypeScript, Vite SSG, and Cloudflare Pages deployment.
 
 ## Features
 
@@ -22,15 +22,21 @@ npm run build
 
 ## Deployment
 
-The app is configured for the GitHub Pages project path:
+The app is configured for Cloudflare Pages:
 
 ```txt
-https://max179.github.io/BuildCalc/
+https://buildcalc-tools.pages.dev/
 ```
 
 `npm run build` generates `dist/`, pre-renders static routes, creates `sitemap.xml`, and copies the SSG 404 page to `dist/404.html`.
 
-`npm run deploy` force-pushes the built `dist/` output to the `gh-pages` branch.
+Cloudflare Pages should be connected to `Max179/BuildCalc` on the `main` branch with:
+
+```txt
+Build command: npm run build
+Build output directory: dist
+Root directory: /
+```
 
 ## Environment
 
