@@ -1,5 +1,7 @@
 import type { Directive } from 'vue'
 
+const observerStore = new WeakMap<HTMLElement, IntersectionObserver>()
+
 // v-reveal：进入视口时淡入上移，可用 v-reveal="120" 传 stagger 延迟（ms）
 export const vReveal: Directive<HTMLElement, number | undefined> = {
   mounted(el, binding) {
@@ -19,5 +21,10 @@ export const vReveal: Directive<HTMLElement, number | undefined> = {
       { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
     )
     io.observe(el)
+    observerStore.set(el, io)
+  },
+  unmounted(el) {
+    observerStore.get(el)?.disconnect()
+    observerStore.delete(el)
   },
 }

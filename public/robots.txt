@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://max179.github.io/BuildCalc/sitemap.xml
+Sitemap: https://buildcalc.pages.dev/sitemap.xml

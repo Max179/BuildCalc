@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ArrowUpRight, ShoppingCart } from 'lucide-vue-next'
 import type { BuyLink } from '@/data/types'
+import { appendAffiliateTag } from '@/lib/affiliate'
 
 // 结果页购买推荐：Amazon 搜索链接即插即用；配置 VITE_AMAZON_TAG 后自动附加联盟 tag
 defineProps<{ links: BuyLink[] }>()
@@ -8,8 +9,7 @@ defineProps<{ links: BuyLink[] }>()
 const amazonTag = import.meta.env.VITE_AMAZON_TAG as string | undefined
 
 function withTag(url: string): string {
-  if (!amazonTag) return url
-  return url.includes('?') ? `${url}&tag=${amazonTag}` : url
+  return appendAffiliateTag(url, amazonTag)
 }
 </script>
 
