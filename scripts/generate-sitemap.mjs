@@ -6,6 +6,15 @@ import { fileURLToPath } from 'node:url'
 const SITE_URL = 'https://buildcalc-tools.pages.dev'
 const dist = join(dirname(fileURLToPath(import.meta.url)), '..', 'dist')
 
+function escapeXml(value) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+}
+
 /** 递归收集 dist 中含 index.html 的目录 → URL 路径 */
 function collectRoutes(dir, base = '') {
   const routes = []
@@ -29,7 +38,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 ${routes
   .map(
     (r) => `  <url>
-    <loc>${SITE_URL}${r}</loc>
+    <loc>${escapeXml(`${SITE_URL}${r}`)}</loc>
     <lastmod>${today}</lastmod>
   </url>`,
   )
