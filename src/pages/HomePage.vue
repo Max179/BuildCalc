@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
-import { ArrowRight, ArrowUpRight, Search, ShieldCheck, FileText, Zap } from 'lucide-vue-next'
+import { ArrowRight, ArrowUpRight, Search, ShieldCheck, FileText, Zap, Award } from 'lucide-vue-next'
 import { calculatorMetas } from '@/data/calculators'
+import { reviews } from '@/data/reviews'
 import ToolIcon from '@/components/ToolIcon.vue'
 import AdSlot from '@/components/AdSlot.vue'
+import StarRating from '@/components/StarRating.vue'
 import { useSEO, SITE_NAME, SITE_URL } from '@/composables/useSEO'
 import { asset } from '@/utils/asset'
 
@@ -74,6 +76,9 @@ const trustItems = [
   { icon: ShieldCheck, text: 'No sign-up' },
   { icon: Zap, text: 'Runs in your browser' },
 ]
+
+// 精选产品评测（首页展示前 4 篇）
+const featuredReviews = computed(() => reviews.slice(0, 4))
 </script>
 
 <template>
@@ -144,6 +149,47 @@ const trustItems = [
       <p v-else class="tool-empty">No calculators match “{{ query }}”.</p>
 
       <AdSlot class="home-ad" />
+    </div>
+  </section>
+
+  <!-- 精选产品评测（商业闭环：工具 → 评测 → 联盟） -->
+  <section class="section reviews-section">
+    <div class="container">
+      <div class="reviews-head" v-reveal>
+        <div class="reviews-title">
+          <span class="eyebrow">
+            <Award :size="15" /> Top-Rated Picks
+          </span>
+          <h2>Tested. Compared. Recommended.</h2>
+        </div>
+        <router-link to="/reviews/" class="reviews-all">
+          All reviews <ArrowRight :size="16" />
+        </router-link>
+      </div>
+
+      <div class="reviews-grid">
+        <router-link
+          v-for="(r, i) in featuredReviews"
+          :key="r.slug"
+          v-reveal="i * 70"
+          :to="`/reviews/${r.slug}/`"
+          class="review-card"
+        >
+          <div class="review-badge">{{ r.topPick.badge }}</div>
+          <h3 class="review-title">{{ r.title }}</h3>
+          <div class="review-pick">
+            <span class="review-pick-label">Top Pick</span>
+            <span class="review-pick-name">{{ r.topPick.name }}</span>
+            <StarRating :rating="r.topPick.rating" />
+          </div>
+          <div class="review-foot">
+            <span class="review-price">{{ r.topPick.price }}</span>
+            <span class="review-go" aria-hidden="true">
+              Read review <ArrowUpRight :size="16" />
+            </span>
+          </div>
+        </router-link>
+      </div>
     </div>
   </section>
 
@@ -440,6 +486,141 @@ const trustItems = [
   margin-top: 48px;
 }
 
+/* ---------- 精选评测 ---------- */
+.reviews-section {
+  background: var(--paper);
+}
+
+.reviews-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.reviews-title h2 {
+  margin-top: 10px;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.reviews-title .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.reviews-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.reviews-all:hover {
+  color: var(--accent-strong);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.review-card {
+  position: relative;
+  display: grid;
+  gap: 16px;
+  align-content: space-between;
+  padding: 28px;
+  background: var(--paper-raised);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.review-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2);
+}
+
+.review-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 5px 12px;
+  background: var(--success);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+
+.review-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+  padding-right: 110px;
+}
+
+.review-pick {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  background: var(--paper-sunk);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--accent);
+}
+
+.review-pick-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.review-pick-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.review-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.review-price {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.review-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
 /* ---------- 指南 ---------- */
 .guides-section {
   background: var(--paper-sunk);
@@ -524,6 +705,10 @@ const trustItems = [
 @media (max-width: 1024px) {
   .tool-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
   }
 }
 

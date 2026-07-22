@@ -56,8 +56,75 @@ export interface LegalSection {
 }
 
 export interface LegalPage {
-  page: 'privacy' | 'terms' | 'about' | 'contact'
+  page: 'privacy' | 'terms' | 'about' | 'contact' | 'affiliate'
   title: string
   description: string
   sections: LegalSection[]
+}
+
+// ===== 产品评测（Product Roundup）类型 =====
+
+/** 单款产品的购买链接（多平台） */
+export interface ProductBuyLink {
+  retailer: string // 'Amazon' | 'Home Depot' | "Lowe's"
+  label: string // 按钮文案，如 'Check Price'
+  price: string // '$5.98'
+  url: string
+}
+
+/** 单款推荐产品 */
+export interface Product {
+  id: string // 'quikrete-80lb'
+  name: string // 'Quikrete 80 lb Concrete Mix'
+  brand: string // 'Quikrete'
+  price: string // '$5.98'
+  priceNote?: string // 'per bag'
+  rating: number // 4.7（5 分制，支持 0.5）
+  reviewCount?: number // 12847
+  badge?: string // 'Best Overall' | 'Best Value' | 'Best for Beginners' | 'Premium Pick' | 'Also Great'
+  pros: string[] // 3–5 条
+  cons: string[] // 2–3 条
+  specs: Record<string, string> // { Coverage: '0.6 cu ft', 'Set Time': '4 hours' }
+  buyLinks: ProductBuyLink[] // 多平台购买链接
+  bestFor: string // 'fence posts and small slabs'
+}
+
+/** 产品合集评测文章（Best X for Y） */
+export interface Review {
+  slug: string // 'best-concrete-mix'
+  title: string // 'Best Concrete Mix for DIY Projects (2026)'
+  description: string // meta description
+  date: string // ISO 首发日期
+  updated: string // ISO 最近更新
+  calculatorSlug: string // 关联计算器
+  author: string // 'BuildCalc Editorial Team'
+  reviewer: string // 审核人
+  intro: string[] // 开头段落（选购痛点 + 我们如何测试）
+  topPick: Product // 主推产品（大卡片）
+  picks: Product[] // 其他推荐（2–4 款）
+  comparisonTable: {
+    headers: string[]
+    rows: string[][]
+    note?: string
+  }
+  buyingGuide: GuideSection[] // What to look for
+  howWeTested: string[] // 编辑流程段落
+  faqs: FaqItem[]
+}
+
+/** 品牌对比文章（X vs Y） */
+export interface Comparison {
+  slug: string // 'quikrete-vs-sakrete'
+  title: string
+  description: string
+  date: string
+  updated: string
+  calculatorSlug: string
+  author: string
+  reviewer: string
+  brandA: string // 'Quikrete'
+  brandB: string // 'Sakrete'
+  verdict: string // 结论段落
+  sections: GuideSection[]
+  faqs: FaqItem[]
 }

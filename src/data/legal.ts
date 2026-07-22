@@ -1,7 +1,7 @@
 import type { LegalPage } from './types'
 
-// 合规页面内容 —— 隐私政策 / 使用条款 / 关于 / 联系
-export const legalPages: Record<'privacy' | 'terms' | 'about' | 'contact', LegalPage> = {
+// 合规页面内容 —— 隐私政策 / 使用条款 / 关于 / 联系 / 联盟披露
+export const legalPages: Record<'privacy' | 'terms' | 'about' | 'contact' | 'affiliate', LegalPage> = {
   privacy: {
     page: 'privacy',
     title: 'Privacy Policy',
@@ -136,6 +136,14 @@ export const legalPages: Record<'privacy' | 'terms' | 'about' | 'contact', Legal
         ],
       },
       {
+        heading: 'Our Editorial Process',
+        paragraphs: [
+          'Every calculator and review on BuildCalc follows a consistent editorial workflow. We start with industry-standard formulas and manufacturer specifications, cross-check coverage rates against multiple product labels, and verify worked examples by hand. Content is drafted by our editorial team, then reviewed by a second editor for accuracy and clarity before publication.',
+          'For product reviews, we research the most popular options in each category, analyze specification sheets, and study verified purchase reviews across major retailers. We score products on quality, value, and suitability for typical DIY projects. Manufacturers do not pay for placement, and they never see our content before it is published. Read our full Affiliate Disclosure for details on how we earn money.',
+          'We revisit and update content regularly. Every page shows its last-updated date so you can judge freshness for yourself.',
+        ],
+      },
+      {
         heading: 'Photo Credits',
         paragraphs: [
           'The photography on this site comes from openly licensed Creative Commons collections (Wikimedia Commons and Flickr, via the Openverse catalog). We are grateful to the creators below for sharing their work.',
@@ -179,6 +187,61 @@ export const legalPages: Record<'privacy' | 'terms' | 'about' | 'contact', Legal
         heading: 'What to Include in Your Message',
         paragraphs: [
           'To help us help you quickly, mention which calculator or page you are writing about, the values you entered, and the result you expected versus what you saw. Screenshots are welcome but not required. Please do not include sensitive personal information — we do not need it to answer your question.',
+        ],
+      },
+    ],
+  },
+  affiliate: {
+    page: 'affiliate',
+    title: 'Affiliate Disclosure',
+    description:
+      'How BuildCalc earns money through affiliate links: our editorial independence, the programs we participate in, and how we test and score products.',
+    sections: [
+      {
+        heading: 'Our Commitment to You',
+        paragraphs: [
+          'BuildCalc is free to use, and we intend to keep it that way. To support the site, we participate in affiliate marketing programs. This means that when you click certain links on our site and make a purchase, we may earn a commission — at no additional cost to you.',
+          'We believe transparency builds trust. This page explains exactly how affiliate relationships work on BuildCalc, which programs we participate in, and how we keep our recommendations honest.',
+        ],
+      },
+      {
+        heading: 'Affiliate Programs We Participate In',
+        paragraphs: [
+          'BuildCalc is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. As an Amazon Associate, we earn from qualifying purchases.',
+          'We may also link to other retailers such as Home Depot and Lowe\'s. Where those links are part of an affiliate program, we earn a commission on qualifying purchases.',
+        ],
+      },
+      {
+        heading: 'How Affiliate Links Work on BuildCalc',
+        paragraphs: [
+          'Affiliate links appear primarily in our product reviews, buying guides, and "Where to Buy" sections. They are marked with a sponsored or nofollow attribute, and we display a disclosure notice on every page that contains them.',
+          'Prices shown on our site are approximate and were accurate at the time of publication. Prices change frequently — always check the retailer\'s website for the current price. We are not responsible for price differences between our site and the retailer.',
+        ],
+      },
+      {
+        heading: 'Editorial Independence',
+        paragraphs: [
+          'Our product recommendations are based on independent research, hands-on evaluation of specifications and user feedback, and comparisons of features, durability, and value. Manufacturers and retailers do not pay for placement in our reviews, and they do not see our content before it is published.',
+          'A product\'s ranking on BuildCalc is never influenced by the commission rate it offers. If a cheaper product is the better choice for most people, we say so — even if a more expensive alternative would earn us more.',
+        ],
+      },
+      {
+        heading: 'How We Test and Score Products',
+        paragraphs: [
+          'For each product category, we research the most popular and highest-rated options, analyze specifications from manufacturer documentation, and study verified purchase reviews from multiple retailers. We score products on a five-point scale considering quality, value, ease of use, and suitability for typical DIY projects.',
+          'Our "Top Pick" is the product we would buy ourselves for the most common use case. "Best Value" is our pick for budget-conscious buyers. Other badges highlight products that excel in specific scenarios.',
+        ],
+      },
+      {
+        heading: 'Advertising',
+        paragraphs: [
+          'In addition to affiliate links, BuildCalc displays advertising through Google AdSense. Advertisers do not influence our editorial content, and advertising is clearly distinguished from our recommendations.',
+        ],
+      },
+      {
+        heading: 'Questions',
+        paragraphs: [
+          'If you have questions about our affiliate relationships or how we make money, contact us at hello@buildcalc-tools.pages.dev.',
         ],
       },
     ],

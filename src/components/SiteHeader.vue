@@ -41,6 +41,7 @@ watch(
             </router-link>
           </div>
         </div>
+        <router-link to="/reviews/" class="nav-link">Reviews</router-link>
         <router-link to="/guides/" class="nav-link">Guides</router-link>
         <router-link to="/about/" class="nav-link">About</router-link>
       </nav>
@@ -58,6 +59,7 @@ watch(
 
     <nav v-show="menuOpen" class="nav-mobile" aria-label="Mobile">
       <router-link to="/#calculators" class="nav-mobile-link">Calculators</router-link>
+      <router-link to="/reviews/" class="nav-mobile-link">Reviews</router-link>
       <router-link to="/guides/" class="nav-mobile-link">Guides</router-link>
       <router-link to="/about/" class="nav-mobile-link">About</router-link>
       <router-link to="/contact/" class="nav-mobile-link">Contact</router-link>

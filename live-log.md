@@ -2,6 +2,52 @@
 
 > 实时记录所有变更，确保任何开发者可无缝接手。最新记录在最上方。
 
+## 2026-07-20 — 产品评测体系 + 商业闭环（v0.5.0）
+
+> 基于竞品调研（inchcalculator.com / calculator.net / thisoldhouse.com / thespruce.com）深化设计，打通 SEO → AdSense → 亚马逊联盟闭环。方案文档：`.trae/documents/buildcalc-enhancement-plan.md`
+
+### 新增：产品评测体系（8 篇 roundup）
+- **数据层**：`src/data/reviews/` 8 个文件（concrete/paint/flooring/mulch/gravel/drywall/tile/roofing），每篇含 topPick + 3 picks + 对比表 + buyingGuide + howWeTested + faqs
+- **类型**：`src/data/types.ts` 新增 `Product` / `ProductBuyLink` / `Review` / `Comparison` 接口
+- **聚合器**：`src/data/reviews.ts`（`reviews` / `getReview` / `getReviewByCalculator`）
+- **页面**：
+  - `ReviewsPage.vue` 评测列表（/reviews/），ItemList JSON-LD
+  - `ReviewDetailPage.vue` 评测详情（/reviews/{slug}/），Article + ItemList(Product) + FAQPage + BreadcrumbList JSON-LD
+- **路由**：`/reviews/` + 8 个显式静态路由（SSG 预渲染）
+
+### 新增：组件
+- `ProductCard.vue`：评分徽章（Best Overall 等）+ 品牌/名称 + StarRating + pros/cons 双列 + specs 参数表 + 价格 + 多平台购买按钮（Amazon 主按钮橙色）
+- `StarRating.vue`：SVG 五角星，金色 #B8860B，支持半星
+- `AffiliateDisclosure.vue`：FTC 披露横幅（banner 用于页首 / inline 用于产品卡下方）
+- `AuthorByline.vue`：By X · Reviewed by Y · Updated date（E-E-A-T 信任信号）
+
+### 新增：FTC 联盟披露页
+- `/affiliate-disclosure/`，legal.ts 新增 `affiliate` 页（7 章节：承诺/参与项目/链接机制/编辑独立/测试方法/广告/联系）
+- About 页新增 "Our Editorial Process" 章节（E-E-A-T）
+- SiteFooter Legal 列加 "Affiliate Disclosure"，Resources 列加 "Product Reviews"
+- SiteHeader 桌面+移动导航加 "Reviews"
+
+### 升级：计算器页（商业闭环核心）
+- H1 下方加 AuthorByline（作者/审核者/更新日期）
+- FAQ 下方加 "Buying Guide & Top Picks" 评测横幅：徽章 + 标题 + 描述 + Top Pick（星级）+ 价格 + CTA 按钮，点击进评测详情
+- 内链闭环：计算器 → 评测 → 亚马逊
+
+### 升级：首页
+- 工具网格下方新增 "Top-Rated Picks" 精选评测区块（4 张卡片：徽章 + 标题 + Top Pick + 星级 + 价格）
+- eyebrow 带 Award 图标
+
+### SEO
+- 评测页 JSON-LD：`Article`（datePublished/dateModified/author）+ `ItemList`（含 `Product` + `AggregateRating` + `Offer`）+ `FAQPage` + `BreadcrumbList`
+- 构建 51 个 URL（原 42 + 8 评测 + 1 affiliate-disclosure）
+
+### 验证
+- vue-tsc 0 错误、构建成功、浏览器核查：首页评测区块 / 评测列表 8 卡 / 评测详情全元素 / 计算器页署名+评测横幅全部正常
+
+### 待办
+- Cloudflare Pages 部署（当前 SITE_URL = buildcalc-tools.pages.dev，如换域名需同步 useSEO.ts / generate-sitemap.mjs / robots.txt）
+- Amazon Associates 申请后配置 `VITE_AMAZON_TAG` 环境变量（BuyBox/ProductCard 自动附加联盟 tag）
+- 品牌对比页（Comparison 类型已定义，本期未实现页面）
+
 ## 2026-07-19 — 实景图片 + 玻璃拟态 + GitHub Pages 上线（v0.4.0）
 
 ### 视觉升级

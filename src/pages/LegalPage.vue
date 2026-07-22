@@ -3,16 +3,25 @@ import { computed } from 'vue'
 import { legalPages } from '@/data/legal'
 import { useSEO, SITE_NAME } from '@/composables/useSEO'
 
-const props = defineProps<{ page: 'privacy' | 'terms' | 'about' | 'contact' }>()
+const props = defineProps<{ page: 'privacy' | 'terms' | 'about' | 'contact' | 'affiliate' }>()
 
 const content = computed(() => legalPages[props.page])
 
 useSEO(
-  computed(() => ({
-    title: `${content.value.title} — ${SITE_NAME}`,
-    description: content.value.description,
-    path: `/${props.page === 'privacy' ? 'privacy-policy' : props.page}/`,
-  })),
+  computed(() => {
+    const pathMap: Record<string, string> = {
+      privacy: '/privacy-policy/',
+      terms: '/terms/',
+      about: '/about/',
+      contact: '/contact/',
+      affiliate: '/affiliate-disclosure/',
+    }
+    return {
+      title: `${content.value.title} — ${SITE_NAME}`,
+      description: content.value.description,
+      path: pathMap[props.page] ?? `/${props.page}/`,
+    }
+  }),
 )
 </script>
 

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { ArrowUpRight } from 'lucide-vue-next'
+import { ArrowUpRight, ArrowRight } from 'lucide-vue-next'
 import { getCalculator, getRelated } from '@/data/calculators'
+import { getReviewByCalculator } from '@/data/reviews'
 import { calcComponents } from '@/calculators'
 import { useSEO, SITE_NAME, SITE_URL } from '@/composables/useSEO'
 import ToolIcon from '@/components/ToolIcon.vue'
@@ -9,6 +10,8 @@ import AdSlot from '@/components/AdSlot.vue'
 import FaqAccordion from '@/components/FaqAccordion.vue'
 import CalcSwitcher from '@/components/CalcSwitcher.vue'
 import BuyBox from '@/components/BuyBox.vue'
+import AuthorByline from '@/components/AuthorByline.vue'
+import StarRating from '@/components/StarRating.vue'
 import { asset } from '@/utils/asset'
 
 const props = defineProps<{ slug: string }>()
@@ -16,6 +19,8 @@ const props = defineProps<{ slug: string }>()
 const content = computed(() => getCalculator(props.slug))
 const calcComponent = computed(() => calcComponents[props.slug])
 const related = computed(() => (content.value ? getRelated(content.value.related) : []))
+// 关联产品评测（商业闭环：计算器 → 评测 → 联盟）
+const linkedReview = computed(() => getReviewByCalculator(props.slug))
 // 页头配图：public/images/tool-{slug}.jpg
 const photoSrc = computed(() => asset(`images/tool-${props.slug}.jpg`))
 
@@ -79,6 +84,12 @@ useSEO(
           <h1>{{ content.name }}</h1>
           <img class="calc-photo" :src="photoSrc" :alt="`${content.name} — project photo`" />
         </div>
+        <AuthorByline
+          class="calc-byline"
+          author="BuildCalc Editorial Team"
+          :reviewer="linkedReview?.reviewer"
+          :updated="linkedReview?.updated ?? '2026-01-15'"
+        />
         <p class="calc-intro">{{ content.intro }}</p>
       </div>
     </section>
@@ -138,6 +149,31 @@ useSEO(
         <h2>Frequently asked questions</h2>
         <FaqAccordion :items="content.faqs" />
         <AdSlot />
+      </div>
+    </section>
+
+    <!-- 关联产品评测（商业闭环） -->
+    <section v-if="linkedReview" class="section-sm">
+      <div class="container" v-reveal>
+        <h2 class="related-title">Buying Guide &amp; Top Picks</h2>
+        <router-link :to="`/reviews/${linkedReview.slug}/`" class="review-banner">
+          <div class="review-banner-badge">{{ linkedReview.topPick.badge }}</div>
+          <div class="review-banner-body">
+            <h3 class="review-banner-title">{{ linkedReview.title }}</h3>
+            <p class="review-banner-desc">{{ linkedReview.description }}</p>
+            <div class="review-banner-pick">
+              <span class="pick-label">Top Pick:</span>
+              <span class="pick-name">{{ linkedReview.topPick.name }}</span>
+              <StarRating :rating="linkedReview.topPick.rating" />
+            </div>
+          </div>
+          <div class="review-banner-foot">
+            <span class="review-banner-price">{{ linkedReview.topPick.price }}</span>
+            <span class="review-banner-cta">
+              Read the full review <ArrowRight :size="18" />
+            </span>
+          </div>
+        </router-link>
       </div>
     </section>
 
@@ -207,6 +243,124 @@ useSEO(
   max-width: 680px;
   font-size: 0.95rem;
   color: var(--ink-faint);
+}
+
+.calc-byline {
+  margin-top: 14px;
+}
+
+/* 关联评测横幅 */
+.review-banner {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  padding: 32px;
+  background: var(--paper-raised);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.review-banner:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-2);
+}
+
+.review-banner-badge {
+  position: absolute;
+  top: -12px;
+  left: 28px;
+  padding: 6px 14px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  box-shadow: var(--shadow-1);
+}
+
+.review-banner-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.review-banner-desc {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.review-banner-pick {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: var(--paper-sunk);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--accent);
+}
+
+.pick-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.pick-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.review-banner-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.review-banner-price {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.review-banner-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background: var(--accent);
+  color: var(--accent-on);
+  font-weight: 600;
+  font-size: 0.92rem;
+  border-radius: var(--radius);
+  transition: background 140ms ease;
+}
+
+.review-banner:hover .review-banner-cta {
+  background: var(--accent-strong);
 }
 
 .calc-photo {

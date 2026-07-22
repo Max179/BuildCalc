@@ -29,6 +29,7 @@ const year = new Date().getFullYear()
 
       <nav class="footer-col" aria-label="Resources">
         <h4>Resources</h4>
+        <router-link to="/reviews/" class="footer-link">Product Reviews</router-link>
         <router-link to="/guides/" class="footer-link">Guides</router-link>
         <router-link to="/about/" class="footer-link">About</router-link>
         <router-link to="/contact/" class="footer-link">Contact</router-link>
@@ -38,6 +39,7 @@ const year = new Date().getFullYear()
         <h4>Legal</h4>
         <router-link to="/privacy-policy/" class="footer-link">Privacy Policy</router-link>
         <router-link to="/terms/" class="footer-link">Terms of Use</router-link>
+        <router-link to="/affiliate-disclosure/" class="footer-link">Affiliate Disclosure</router-link>
       </nav>
     </div>
 
