@@ -21,8 +21,9 @@ const calcComponent = computed(() => calcComponents[props.slug])
 const related = computed(() => (content.value ? getRelated(content.value.related) : []))
 // 关联产品评测（商业闭环：计算器 → 评测 → 联盟）
 const linkedReview = computed(() => getReviewByCalculator(props.slug))
-// 页头配图：public/images/tool-{slug}.jpg
-const photoSrc = computed(() => asset(`images/tool-${props.slug}.jpg`))
+// 页头配图：优先 WebP，回退 jpg
+const photoSrc = computed(() => asset(`images/tool-${props.slug}.webp`))
+const photoFallback = computed(() => asset(`images/tool-${props.slug}.jpg`))
 
 useSEO(
   computed(() => {
@@ -82,7 +83,17 @@ useSEO(
         <div class="calc-title-row">
           <span class="calc-title-icon"><ToolIcon :name="content.icon" :size="24" /></span>
           <h1>{{ content.name }}</h1>
-          <img class="calc-photo" :src="photoSrc" :alt="`${content.name} — project photo`" />
+          <picture class="calc-photo">
+            <source :srcset="photoSrc" type="image/webp" />
+            <img
+              :src="photoFallback"
+              :alt="`${content.name} — project photo`"
+              loading="lazy"
+              decoding="async"
+              width="210"
+              height="118"
+            />
+          </picture>
         </div>
         <AuthorByline
           class="calc-byline"

@@ -22,7 +22,8 @@ useSEO({
   },
 })
 
-// 工具卡片配图：public/images/tool-{slug}.jpg
+// 工具卡片配图：优先 WebP，回退 jpg
+const toolImageWebp = (slug: string) => asset(`images/tool-${slug}.webp`)
 const toolImage = (slug: string) => asset(`images/tool-${slug}.jpg`)
 
 // 搜索框：按名称/描述/分类过滤工具卡片，按 "/" 快速聚焦
@@ -86,12 +87,21 @@ const featuredReviews = computed(() => reviews.slice(0, 4))
   <section class="hero">
     <div class="container">
       <div class="hero-panel">
-        <img
-          class="hero-bg"
-          :src="asset('images/hero-construction.jpg')"
-          alt="Wood-framed house under construction"
-          fetchpriority="high"
-        />
+        <picture>
+          <source
+            :srcset="asset('images/hero-construction.webp')"
+            type="image/webp"
+          />
+          <img
+            class="hero-bg"
+            :src="asset('images/hero-construction.jpg')"
+            alt="Wood-framed house under construction"
+            fetchpriority="high"
+            decoding="async"
+            width="1200"
+            height="604"
+          />
+        </picture>
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-inner">
           <h1 class="hero-title">Measure right. Buy right.</h1>
@@ -137,7 +147,17 @@ const featuredReviews = computed(() => reviews.slice(0, 4))
           class="tool-card"
         >
           <span class="tool-media">
-            <img :src="toolImage(c.slug)" :alt="`${c.name}: ${c.tagline}`" loading="lazy" decoding="async" />
+            <picture>
+              <source :srcset="toolImageWebp(c.slug)" type="image/webp" />
+              <img
+                :src="toolImage(c.slug)"
+                :alt="`${c.name}: ${c.tagline}`"
+                loading="lazy"
+                decoding="async"
+                width="800"
+                :height="Math.round(800 * 0.56)"
+              />
+            </picture>
           </span>
           <span class="tool-body">
             <span class="tool-icon"><ToolIcon :name="c.icon" :size="26" /></span>
@@ -401,10 +421,16 @@ const featuredReviews = computed(() => reviews.slice(0, 4))
   overflow: hidden;
 }
 
-.tool-media img {
+.tool-media img,
+.tool-media picture,
+.tool-media source {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.tool-media img {
+  display: block;
   transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 

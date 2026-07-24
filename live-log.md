@@ -2,6 +2,27 @@
 
 > 实时记录所有变更，确保任何开发者可无缝接手。最新记录在最上方。
 
+## 2026-07-20 — 性能优化：首屏 LCP 修复
+
+> Cloudflare Web Analytics 显示首页 LCP 6,152ms，瓶颈为 `hero-construction.jpg`（327KB）。
+
+### 修复措施
+- **WebP 压缩**：用 sharp 脚本生成全部 11 张图片的 WebP 版本，Hero 图从 327KB 降到 80KB（24%）
+- **格式降级**：首页 Hero、工具卡片、计算器页配图均改为 `<picture><source webp>` 优先，回退 jpg
+- **预加载**：`index.html` 增加 `<link rel="preload" as="image" href="/images/hero-construction.webp" type="image/webp">`
+- **Preconnect**：对 `static.cloudflareinsights.com` 增加 `dns-prefetch`/`preconnect`
+- **图片属性**：Hero 加 `fetchpriority="high"`、`decoding="async"`、显式 `width/height` 避免 CLS；工具卡片加 `loading="lazy"`
+- **构建脚本**：新增 `scripts/optimize-images.mjs`，后续新增图片后运行 `node scripts/optimize-images.mjs` 即可批量生成 WebP
+
+### 验证
+- 构建后 `dist/images/hero-construction.webp` 80KB
+- curl 请求返回 `Content-Type: image/webp`
+- 首页 HTML 中已引用 `hero-construction.webp`
+- 完整构建 51 URL 通过，vue-tsc 0 错误
+
+### 工具脚本
+- `node scripts/optimize-images.mjs`：扫描 `public/images/*.jpg`，生成等名 `.webp`，Hero 1200px、其他 800px
+
 ## 2026-07-20 — 产品评测体系 + 商业闭环（v0.5.0）
 
 > 基于竞品调研（inchcalculator.com / calculator.net / thisoldhouse.com / thespruce.com）深化设计，打通 SEO → AdSense → 亚马逊联盟闭环。方案文档：`.trae/documents/buildcalc-enhancement-plan.md`
